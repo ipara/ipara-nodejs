@@ -21,7 +21,7 @@ Gerekli ortam değişkenleri (**environment variables**)
 - IPARA_MODE
 - IPARA_HASH_STRING
 
->- IPARA_PRIVATE_KEY, IPARA_PUBLIC_KEY ve IPARA_HASH_STRING mutlaka olması gerekmektedir. Aksi taktirde program çalışmayacaktır.
+>- IPARA_PRIVATE_KEY, IPARA_PUBLIC_KEY mutlaka olması gerekmektedir. Aksi taktirde program çalışmayacaktır. Ayrıca baseUrl e dikkat ediniz.
 
 ## Kurulum
 
