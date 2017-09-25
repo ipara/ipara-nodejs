@@ -3,9 +3,11 @@ iPara - Nodejs Kütüphanesi
 
 iPara Nodejs Kütüphanesidir. iPara API'lerine çok hızlı bir şekilde bağlanmanızı sağlayan bu projeyi indirip hızlıca inceliyebilirsiniz.
 
-## Özellikler
+## Notlar
 
-- Özellik eklenecek
+- iPara ile ilgili fonksiyonların hepsi ./ipara/index.js dosyasında. Sadece index.js yi çekerek tüm fonksiyonlara ulaşabilirsiniz.
+- Helpers fonksiyonların tamamı ./helpers/index.js dosyasında. Sadece index.js dosyasını çekerek tüm fonksiyonlara ulaşabilirsiniz.
+- Router klasöründe api.js dosyasında örnek çalıştırmaları bulabilirsiniz. 
 
 ## Kullanım
 
@@ -28,5 +30,5 @@ Gerekli ortam değişkenleri (**environment variables**)
 - **git clone https://github.com/turkishdeveloper/ipara-nodejs.git**
 - **cd ipara-nodejs**
 - **npm install**
-- **npm run ipara**
+- **npm start**
 
