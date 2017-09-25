@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+</head>
+
+<body>
+    <div class="wrapper">
+        {{> navbar}}
+        <div class="content">
+            <div class="content-header">
+                Bin Sorgulama
+            </div>
+            <div class="form-area">
+                <label>Bin Numarası:</label>
+                <input name="quary" type="text" class="form-control" value="492130">
+                <button class="btn success" type="submit" id="pay">Sorgula</button>
+            </div>
+            <pre id="result">
+
+            </pre>
+        </div>
+    </div>
+    <script src="/js/bin-inquiry.js"></script>
+    <script src="/js/template.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+</head>
+
+<body>
+    <div class="wrapper">
+        {{> navbar}}
+        <div class="content">
+            <div class="content-header">
+                Ödeme Sorgulama
+            </div>
+            <div class="form-area">
+                <label>Sipariş Numarası:</label>
+                <input name="quary" type="text" class="form-control" value="58e1e9f22690b">
+                <button class="btn success" type="submit" id="pay">API PAYMENT ILE ODE</button>
+            </div>
+            <pre id="result">
+
+            </pre>
+        </div>
+    </div>
+    <script src="/js/payment-inquiry.js"></script>
+    <script src="/js/template.js"></script>
+</body>
+
+</html>

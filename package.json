@@ -1,0 +1,34 @@
+{
+  "name": "ipara",
+  "version": "1.0.0",
+  "description": "iPara Nodejs Kütüphanesidir. iPara API'lerine çok hızlı bir şekilde bağlanmanızı sağlayan bu projeyi indirip hızlıca inceliyebilirsiniz.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turkishdeveloper/ipara-nodejs.git"
+  },
+  "keywords": [
+    "ipara",
+    "nodejs"
+  ],
+  "author": "Muhammed Furkan Aydın <furkanaydin@turkdeveloper.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turkishdeveloper/ipara-nodejs/issues"
+  },
+  "homepage": "https://github.com/turkishdeveloper/ipara-nodejs#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "guid": "^0.0.12",
+    "sha1": "^1.1.1",
+    "xml2js": "^0.4.19"
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+</head>
+
+<body>
+    <div class="wrapper">
+        {{> navbar}}
+        <div class="content">
+            <pre>
+                {
+                    "amount": "{{results.amount}}",
+                    "orderId": "{{results.orderId}}",
+                    "result": "{{results.result}}",
+                    "errorCode": "{{results.errorCode}}",
+                    "errorMessage": "{{results.errorMessage}}",
+                    "responseMessage": "{{results.responseMessage}}",
+                    "mode": "{{results.mode}}",
+                    "echo": "{{results.echo}}",
+                    "hash": "{{results.hash}}",
+                    "transactionDate": "{{results.transactionDate}}"
+                }
+            </pre>
+        </div>
+    </div>
+    <script src="/js/template.js"></script>
+</body>
+
+</html>

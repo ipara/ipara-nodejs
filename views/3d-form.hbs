@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D Secure Yönlendirme İşlemi</title>
+</head>
+
+<body>
+    <form action="https://entegrasyon.ipara.com/3dgate" id="three_d_form" method="post">
+        <input type="hidden" name="orderId" value="{{form.orderId}}">
+        <input type="hidden" name="amount" value="{{form.amount}}">
+        <input type="hidden" name="cardOwnerName" value="{{form.cardOwnerName}}">
+        <input type="hidden" name="cardNumber" value="{{form.cardNumber}}">
+        <input type="hidden" name="userId" value="{{form.userId}}">
+        <input type="hidden" name="cardId" value="{{form.cardId}}">
+        <input type="hidden" name="cardExpireMonth" value="{{form.cardExpireMonth}}">
+        <input type="hidden" name="cardExpireYear" value="{{form.cardExpireYear}}">
+        <input type="hidden" name="installment" value="{{form.installment}}">
+        <input type="hidden" name="cardCvc" value="{{form.cardCvc}}">
+        <input type="hidden" name="mode" value="{{form.mode}}">
+        <input type="hidden" name="purchaserName" value="{{form.purchaserName}}">
+        <input type="hidden" name="purchaserSurname" value="{{form.purchaserSurname}}">
+        <input type="hidden" name="purchaserEmail" value="{{form.purchaserEmail}}">
+        <input type="hidden" name="successUrl" value="{{form.successUrl}}">
+        <input type="hidden" name="failureUrl" value="{{form.failureUrl}}">
+        <input type="hidden" name="echo" value="{{form.echo}}">
+        <input type="hidden" name="version" value="{{form.version}}">
+        <input type="hidden" name="transactionDate" value="{{form.transactionDate}}">
+        <input type="hidden" name="token" value="{{form.token}}">
+        <input type="submit" value="Öde">
+
+        <noscript>
+            <br><br><br>
+            <center>
+                <h1>3D Secure Yönlendirme İşlemi</h1>
+                <h2>Javascript internet tarayıcınızda kapatılmış veya desteklenmiyor.<br/></h2>
+                <h3>Lütfen banka 3D Secure sayfasına yönlenmek için tıklayınız.</h3>
+                <input type="submit" value="3D Secure Sayfasına Yönlen">
+            </center>
+        </noscript>
+    </form>
+    <script>
+        //document.getElementById("three_d_form").submit();
+    </script>
+</body>
+
+</html>
