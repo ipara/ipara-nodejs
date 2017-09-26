@@ -14,11 +14,11 @@ document.getElementById("pay").addEventListener("click", function (e) {
     ajax.open("POST", "/api//payment-with-wallet", true);
     ajax.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     ajax.onload = function () {
-        target.innerHTML = "API PAYMENT ILE ODE"
+        target.innerHTML = "API Payment ile Ödeme"
         target.disabled = false;
         var data = JSON.parse(ajax.response)
         if (data.error) return alert(data.error)
-        document.getElementById("result").innerHTML = JSON.stringify(data).replace(new RegExp(",", 'g'), ',\n')
+        document.getElementById("result").innerHTML = JSON.stringify(data, null, 4)
     }
     ajax.send(JSON.stringify({
         userId : userId,
