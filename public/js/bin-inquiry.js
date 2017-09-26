@@ -15,7 +15,7 @@ document.getElementById("pay").addEventListener("click", function (e) {
         target.disabled = false;
         var data = JSON.parse(ajax.response)
         if (data.error) return alert(data.error)
-        document.getElementById("result").innerHTML = JSON.stringify(data).replace(new RegExp(",", 'g'), ',\n')
+        document.getElementById("result").innerHTML = JSON.stringify(data, null, 4)
     }
     ajax.send(JSON.stringify({
         quary : quary

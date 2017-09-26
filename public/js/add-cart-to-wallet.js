@@ -19,7 +19,7 @@ document.getElementById("pay").addEventListener("click", function (e) {
         target.innerHTML = "Kartı Ekle"
         target.disabled = false;
         var data = JSON.parse(ajax.response)
-        document.getElementById("result").innerHTML = JSON.stringify(data).replace(new RegExp(",", 'g'), ',\n')
+        document.getElementById("result").innerHTML = JSON.stringify(data, null, 4)
     }
     ajax.send(JSON.stringify({
         cardOwnerName: cardOwnerName,
