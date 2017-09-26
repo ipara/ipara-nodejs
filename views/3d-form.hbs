@@ -30,7 +30,7 @@
         <input type="hidden" name="version" value="{{form.version}}">
         <input type="hidden" name="transactionDate" value="{{form.transactionDate}}">
         <input type="hidden" name="token" value="{{form.token}}">
-        <input type="submit" value="Öde">
+        <input type="submit" value="Öde" hidden="hidden">
 
         <noscript>
             <br><br><br>
@@ -43,7 +43,7 @@
         </noscript>
     </form>
     <script>
-        //document.getElementById("three_d_form").submit();
+        document.getElementById("three_d_form").submit();
     </script>
 </body>
 

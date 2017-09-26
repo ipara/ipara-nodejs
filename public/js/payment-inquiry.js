@@ -11,7 +11,7 @@ document.getElementById("pay").addEventListener("click", function (e) {
     ajax.open("POST", "/api/payment-inquiry", true);
     ajax.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     ajax.onload = function () {
-        target.innerHTML = "API PAYMENT ILE ODE"
+        target.innerHTML = "Sorgula"
         target.disabled = false;
         var data = JSON.parse(ajax.response).inquiryResponse
         console.log(data)

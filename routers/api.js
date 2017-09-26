@@ -28,7 +28,8 @@ exports.api
             parseString(results, function (err, result) {
                 if (err) throw new Error(err);
                 res.render("result", {
-                    results: result.authResponse
+                    results: result.authResponse,
+                    status : "İşlem Başarılı"
                 })
             });
         })
@@ -36,7 +37,8 @@ exports.api
     })
     .post("/error", (req, res) => {
         res.render("result", {
-            results: req.body
+            results: req.body,
+            status : "İşlem Başarısız"
         })
     })
     .post("/non-3d-payment", (req, res) => {
