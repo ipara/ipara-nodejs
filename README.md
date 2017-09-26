@@ -27,7 +27,7 @@ Gerekli ortam değişkenleri (**environment variables**)
 
 **Dikkat:** Proje dosyasını düzgün bir şekilde çalıştırabilmek için öncelikle cihazınızda Nodejs (v6+) ve Npm (v5+) kurulu olmalıdır. Daha önceki versyonlarda da kullanabilirsiniz ancak sorun yaşama ihtimaliniz olucaktır.
 
-- **git clone https://github.com/turkishdeveloper/ipara-nodejs.git**
+- **git clone https://github.com/ipara/ipara-nodejs.git**
 - **cd ipara-nodejs**
 - **npm install**
 - **npm start**
