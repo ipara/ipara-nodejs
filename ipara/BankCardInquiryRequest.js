@@ -9,9 +9,9 @@ function BankCardInquiryRequest(userId, cardId, clientIp) {
         })
         const data = JSON.stringify({
             userId: userId,
+            cardId : cardId || "",
             clientIp: clientIp
         })
-        if (cardId) data.cardId = cardId
         const transactionDateForRequest = helpers.GetTransactionDateString();
         axios({
             url: settings.baseURL + "/bankcard/inquiry",
