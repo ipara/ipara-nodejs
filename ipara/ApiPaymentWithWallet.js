@@ -4,43 +4,137 @@ const helpers = require("../helpers/index");
 const Guid = require("guid");
 
 
-function ApiPaymentWithWallet(userId, cardId, installment) {
+function ApiPaymentWithWallet(obj) {
     return new Promise((resolve, reject) => {
-        const orderId = Guid.raw();
-        const amount = "10000"
-        const xml_data = '<?xml version="1.0" encoding="UTF-8"?>\n' +
-            "<auth>\n" +
-            "    <threeD>" + false + "</threeD>\n" +
-            "    <orderId>" + orderId + "</orderId>\n" +
-            "    <amount>" + amount + "</amount>\n" +
-            "    <cardOwnerName>" + "" + "</cardOwnerName>\n" +
-            "    <cardNumber>" + "" + "</cardNumber>\n" +
-            "    <cardExpireMonth>" + "" + "</cardExpireMonth>\n" +
-            "    <cardExpireYear>" + "" + "</cardExpireYear>\n" +
-            "    <installment>" + installment + "</installment>\n" +
-            "    <cardCvc>" + "" + "</cardCvc>\n" +
-            "    <userId>" + userId + "</userId>\n" +
-            "    <cardId>" + cardId + "</cardId>\n" +
-            "    <mode>" + settings.mode + "</mode>\n" +
-            "    <vendorId></vendorId>\n" +
-            "    <products>\n" +
-            "<product>\n" +
-            "	<productCode>" + "123123123" + "</productCode>\n" +
-            "	<productName>" + encodeURIComponent("Cep telefonu") + "</productName>\n" +
-            "	<quantity>" + "1" + "</quantity>\n" +
-            "	<price>" + "10000" + "</price>\n" +
-            "</product>\n" +
-            "    </products>\n" +
-            "    <purchaser>\n" +
-            "        <name>" + encodeURIComponent("Muhammed Furkan") + "</name>\n" +
-            "        <surname>" + encodeURIComponent("Aydın") + "</surname>\n" +
-            "        <birthDate>" + "1994.10.31" + "</birthDate>\n" +
-            "        <email>" + "enterdarkside@gmail.com" + "</email>\n" +
-            "        <gsmNumber>" + "5070732987" + "</gsmNumber>\n" +
-            "        <tcCertificate>" + "11111111111" + "</tcCertificate>\n" +
-            "        <clientIp>" + "78.191.6.240" + "</clientIp>\n" +
-            "    </purchaser>\n" +
-            "</auth>";
+
+        if (!obj) return resolve({
+            error: "3D Payment Sonuçları Bulunamadı !"
+        })
+        const {
+            threeD
+        } = obj;
+        if (!threeD) return resolve({
+            error: "Lütfen threeD bilgisi giriniz..."
+        })
+
+        const threeD_xml = `<threeD>${threeD}</threeD>`
+
+        const {
+            cardOwnerName,
+            cardNumber,
+            cardExpireMonth,
+            cardExpireYear,
+            cardCvc,
+            installment,
+            cardId,
+            userId
+        } = obj;
+
+        const card_xml = `<cardOwnerName></cardOwnerName>
+        <cardNumber></cardNumber>
+        <cardExpireMonth></cardExpireMonth>
+        <cardExpireYear></cardExpireYear>
+        <cardCvc></cardCvc>
+        <cardId>${cardId}</cardId>
+        <userId>${userId}</userId>`
+
+        if (!installment) return resolve({
+            error: "Installment bulumanadı !"
+        })
+
+        const installment_xml = `<installment>${installment}</installment>`
+
+
+        const {
+            orderId,
+            amount
+        } = obj;
+
+        if (!orderId) return resolve({
+            error: "orderId bulunamadı !"
+        })
+
+        const orderId_xml = `<orderId>${orderId}</orderId>`
+
+        if (!amount) return resolve({
+            error: "amount bulunamadı !"
+        })
+
+        const amount_xml = `<amount>${amount}</amount>`
+
+        const {
+            products
+        } = obj;
+
+        if (products.length < 1) return resolve({
+            error: "En az 1 adet ürün olmalıdır !"
+        })
+
+        let productList = "";
+        products.forEach(product => {
+            productList += `<product><productCode>${product.productCode}</productCode>
+            <productName>${encodeURIComponent(product.productName)}</productName>
+            <quantity>${product.quantity}</quantity>
+            <price>${product.price}</price></product>`
+        })
+
+        const products_xml = `<products>${productList}</products>`
+
+        const {
+            purchaser
+        } = obj;
+
+        let purchaser_xml = "";
+        if (purchaser) {
+            let userInfo = `<name>${purchaser.name}</name>
+                            <surname>${(purchaser.surname)}</surname>
+                            <email>${purchaser.email}</email>
+                            <clientIp>${(purchaser.clientIp)}</clientIp>
+                            <birthDate>${(purchaser.birthDate)}</birthDate>
+                            <gsmNumber>${(purchaser.gsmNumber)}</gsmNumber>
+                            <tcCertificate>${purchaser.tcCertificate}</tcCertificate>`
+            let invoiceAddress = ""
+            if (purchaser.invoiceAddress) {
+                invoiceAddress = `<invoiceAddress><name>${(purchaser.invoiceAddress.name) || ""}</name>
+                <surname>${(purchaser.invoiceAddress.surname) || ""}</surname>
+                <address>${(purchaser.invoiceAddress.address )|| ""}</address>
+                <zipcode>${(purchaser.invoiceAddress.zipcode) || ""}</zipcode>
+                <city>${(purchaser.invoiceAddress.city) || ""}</city>
+                <tcCertificate>${purchaser.invoiceAddress.tcCertificate|| ""}</tcCertificate>
+                <country>${(purchaser.invoiceAddress.country)|| ""}</country>
+                <taxNumber>${purchaser.invoiceAddress.taxNumber || ""}</taxNumber>
+                <taxOffice>${purchaser.invoiceAddress.taxOffice || ""}</taxOffice>
+                <companyName>${purchaser.invoiceAddress.companyName || ""}</companyName>
+                <phoneNumber>${purchaser.invoiceAddress.phoneNumber || ""}</phoneNumber> </invoiceAddress>`
+            }
+            let shippingAddress = "";
+            if (purchaser.shippingAddress) {
+                shippingAddress = `<shippingAddress><name>${encodeURIComponent(purchaser.shippingAddress.name) || ""}</name>
+                <surname>${encodeURIComponent(purchaser.shippingAddress.surname) || ""}</surname>
+                <address>${encodeURIComponent(purchaser.shippingAddress.address) || ""}</address>
+                <zipcode>${purchaser.shippingAddress.zipcode || ""}</zipcode>
+                <city>${purchaser.shippingAddress.city || ""}</city>
+                <country>${purchaser.shippingAddress.country || ""}</country>
+                <phoneNumber>${purchaser.shippingAddress.phoneNumber || ""}</phoneNumber> </shippingAddress>`
+            }
+            purchaser_xml = `<purchaser>${userInfo + invoiceAddress + shippingAddress}</purchaser>`
+        }
+
+        const {
+            mode
+        } = obj;
+
+        const mode_xml = `<mode>${mode || settings.mode}</mode>`
+        const {
+            echo
+        } = obj;
+        let echo_xml = ""
+        if (echo) {
+            echo_xml = `<echo>${echo}</echo>`
+        }
+
+        const xml_body = `<?xml version="1.0" encoding="UTF-8"?><auth>${threeD_xml}${card_xml}${installment_xml}${orderId_xml}${echo_xml}${amount_xml}${mode_xml}${products_xml}${purchaser_xml}</auth>`
+
 
         const transactionDateForRequest = helpers.GetTransactionDateString();
         axios({
@@ -49,11 +143,11 @@ function ApiPaymentWithWallet(userId, cardId, installment) {
             headers: {
                 "transactionDate": (transactionDateForRequest),
                 "version": (settings.version),
-                "token": (helpers.CreateToken(settings.publicKey, settings.privateKey + orderId + amount + settings.mode + "" + "" + "" + "" + "" + userId + cardId + "Muhammed Furkan" + "Aydın" + "enterdarkside@gmail.com" + transactionDateForRequest)),
+                "token": (helpers.CreateToken(settings.publicKey, settings.privateKey + obj.orderId + obj.amount + settings.mode + obj.cardOwnerName + obj.cardNumber + obj.cardExpireMonth + obj.cardExpireYear + obj.cardCvc + obj.userId + obj.cardId + obj.purchaser.name + obj.purchaser.surname + obj.purchaser.email + transactionDateForRequest)),
                 'Content-Type': 'application/xml',
-                'Content-Length': Buffer.byteLength(xml_data)
+                'Content-Length': Buffer.byteLength(xml_body)
             },
-            data: xml_data
+            data: xml_body
         }).then(result => {
             resolve(result.data)
         }).catch(err => {
