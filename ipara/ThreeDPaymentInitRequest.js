@@ -2,36 +2,30 @@ const settings = require("../settings");
 const helpers = require("../helpers/index");
 const Guid = require("guid");
 
-function ThreeDPaymentInitRequest(cardOwnerName, cardNumber, cardExpireMonth, cardExpireYear, cardCvc, installment) {
+function ThreeDPaymentInitRequest(obj) {
+
     const transactionDate = helpers.GetTransactionDateString()
-    const orderId = Guid.raw();
-    const amount = "10000";
-    const purchaserName = "Murat";
-    const purchaserSurname = "Kaya";
-    const purchaserEmail = "enterdarkside@gmail.com"
-    const userId = "";
-    const cardId = "";
     const echo = "";
-    const token = helpers.CreateToken(settings.publicKey, (settings.privateKey + orderId + amount + settings.mode + cardOwnerName + cardNumber + cardExpireMonth + cardExpireYear + cardCvc + userId + cardId + purchaserName + purchaserSurname + purchaserEmail + transactionDate))
+    const token = helpers.CreateToken(settings.publicKey, (settings.privateKey + obj.orderId + obj.amount + settings.mode + obj.cardOwnerName + obj.cardNumber + obj.cardExpireMonth + obj.cardExpireYear + obj.cardCvc + obj.userId + obj.cardId + obj.purchaserName + obj.purchaserSurname + obj.purchaserEmail + transactionDate))
 
     return {
         mode: settings.mode,
-        orderId: orderId,
-        cardOwnerName: cardOwnerName,
-        cardNumber: cardNumber,
-        cardExpireMonth: cardExpireMonth,
-        cardExpireYear: cardExpireYear,
-        cardCvc: cardCvc,
-        userId: userId,
-        cardId: cardId,
-        installment: installment,
-        amount: amount,
-        echo: echo,
-        purchaserName: purchaserName,
-        purchaserSurname: purchaserSurname,
-        purchaserEmail: purchaserEmail,
-        successUrl: "http://localhost:3000/api/success",
-        failureUrl: "http://localhost:3000/api/error",
+        orderId: obj.orderId,
+        cardOwnerName: obj.cardOwnerName,
+        cardNumber: obj.cardNumber,
+        cardExpireMonth: obj.cardExpireMonth,
+        cardExpireYear: obj.cardExpireYear,
+        cardCvc: obj.cardCvc,
+        userId: obj.userId,
+        cardId: obj.cardId,
+        installment: obj.installment,
+        amount: obj.amount,
+        echo: obj.echo,
+        purchaserName: obj.purchaserName,
+        purchaserSurname: obj.purchaserSurname,
+        purchaserEmail: obj.purchaserEmail,
+        successUrl: obj.successUrl,
+        failureUrl: obj.failureUrl,
         transactionDate: transactionDate,
         version: settings.version,
         token: token
