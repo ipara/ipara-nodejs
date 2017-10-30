@@ -171,7 +171,7 @@ function ThreeDPaymentCompleteRequest(obj) {
 
         const transactionDateForRequest = helpers.GetTransactionDateString();
         axios({
-            url: "https://apitest.ipara.com" + "/rest/payment/auth",
+            url: "https://api.ipara.com" + "/rest/payment/auth",
             method: 'POST',
             headers: {
                 "transactionDate": (transactionDateForRequest),
