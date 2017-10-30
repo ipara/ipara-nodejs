@@ -7,7 +7,7 @@ const settings = {
 
     //iPara web servisleri API url'lerinin başlangıç bilgisidir. Restful web servis isteklerini takip eden kodlar halinde bulacaksınız.
     // Örneğin "https://api.ipara.com/" + "/rest/payment/auth"  = "https://api.ipara.com/rest/payment/auth" 
-    baseURL : process.env.IPARA_BASE_URL || "https://apitest.ipara.com/",
+    baseURL : process.env.IPARA_BASE_URL || "https://api.ipara.com/",
 
     // Kullandığınız iPara API versiyonudur.    
     version : "1.0",
