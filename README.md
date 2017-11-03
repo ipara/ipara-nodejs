@@ -1,7 +1,7 @@
 iPara - Nodejs Kütüphanesi
 ===================
 
-iPara Nodejs Kütüphanesidir. iPara API'lerine çok hızlı bir şekilde bağlanmanızı sağlayan bu projeyi indirip hızlıca inceliyebilirsiniz.
+iPara Nodejs Kütüphanesidir. iPara API'lerine çok hızlı bir şekilde bağlanmanızı sağlayan bu projeyi indirip hızlıca inceleyebilirsiniz.
 
 ## Notlar
 
