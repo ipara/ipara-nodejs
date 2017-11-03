@@ -18,7 +18,7 @@ iPara Nodejs Kütüphanesidir. iPara API'lerine çok hızlı bir şekilde bağla
 
 ## Kullanım
 
-[iPara geliştirici merkezine](http://dev.ipara.com.tr) üye olmalısınız.  Üye olduktan sonra private key ve public key e ihtiyacınız olacak. Bunları settings.js dosyasında belirtilmiş yerlere yazmalısınız veya ortam değişkenlerine aşağıdaki gibi kaydetmelisiniz.
+iPara servislerini kullanabilmek için [iPara'ya](https://www.ipara.com.tr) üye olmalısınız. Üye olduktan sonra iPara sizinle private ve public keylerinizi paylaşacaktır. Paylaşılan bu anahtarları kendi projenizde ilgili yerlere yazarak saklamanız ve kullanmanız gerekmektedir.
 
 Gerekli ortam değişkenleri (**environment variables**)
 
