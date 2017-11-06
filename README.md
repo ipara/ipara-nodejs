@@ -6,11 +6,11 @@ iPara Nodejs Kütüphanesidir. iPara API'lerine çok hızlı bir şekilde bağla
 ## Notlar
 - Projeyi çalıştırmak için gerekli adımlar aşağıdaki gibidir:
   1) Güncel nodejs ve npm sürümünün bilgisayarınızda kurulu olması gerekmektedir. Nodejs v6 ve üstü, npm için ise v5 ve üstü versiyonların kullanıması önerilir.
-  2) Dilediğiniz editor veya nodejs destekler IDE yardımı ile projeyi başlatmak mümkündür.
-  3) Projenin asıl giriş dosyası "server.js" olarak tanımlanmıştır. Kullanım esnasında
-      Console(CLI) üzerinden "to/project/directory> node .\server.js" şeklindeki komut ile projeyi çalıştırabilirsiniz.
-  4) Konsol içinde çıkan uyarılara göre projeyi ayarlayabilir ve gösterilen URL üzerinden deneyebilirsiniz.
-  5) Projeyi doğru şekilde çalıştırmak için, sizlere iPara üyeliğiniz aşamasında verilmiş olan gizli ve açık anahtar bilginizi projenin ".\settings.js" dosyasında eklediğinizden emin olunuz.
+  2) Dilediğiniz editor ile proje kodlarını okumak veya nodejs destekler IDE yardımı ile projeyi başlatmak mümkündür.
+  3) Projenin asıl giriş dosyası "server.js" olarak tanımlanmıştır. Kullanım esnasında eğer IDE kullanmıyorsanız, Console(CLI) üzerinden "to/project/directory> node .\server.js" şeklindeki komut ile projeyi çalıştırabilirsiniz.
+  4) Projenin bağlı dosyalarının kurulumu için "npm install" adımını unutmayınız. Bu projenin bağlı .js dosyalarını "node_modules" altında proje directory'ye eklemesini sağlayacaktır.
+  5) Konsol içinde çıkan uyarılara göre projeyi ayarlayabilir ve gösterilen URL üzerinden deneyebilirsiniz.
+  6) Projeyi doğru şekilde çalıştırmak için, sizlere iPara üyeliğiniz aşamasında verilmiş olan gizli ve açık anahtar bilginizi projenin ".\settings.js" dosyasında eklediğinizden emin olunuz.
 - iPara ile ilgili fonksiyonların hepsi ./ipara/index.js dosyasındadır. Sadece index.js yi çekerek tüm fonksiyonlara ulaşabilirsiniz.
 - Helpers fonksiyonların tamamı ./helpers/index.js dosyasındadır. Sadece index.js dosyasını çekerek tüm fonksiyonlara ulaşabilirsiniz.
 - Router klasöründe api.js dosyasında örnek çalıştırmaları bulabilirsiniz.
