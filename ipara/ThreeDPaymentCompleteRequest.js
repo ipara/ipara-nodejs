@@ -19,40 +19,6 @@ function ThreeDPaymentCompleteRequest(obj) {
 
         const threeD_xml = `<threeD>${threeD}</threeD>`
 
-        // const {
-        //     cardOwnerName,
-        //     cardNumber,
-        //     cardExpireMonth,
-        //     cardExpireYear,
-        //     cardCvc,
-        //     installment,
-        //     cardId,
-        //     userId
-        // } = obj;
-        // if (!cardOwnerName || !cardNumber || !cardExpireMonth || !cardExpireYear || !cardCvc) {
-        //     if (!userId) return resolve({
-        //         error: "Card bilgileri eksik !"
-        //     })
-        // }
-
-        // const card_xml = `<cardOwnerName>${cardOwnerName}</cardOwnerName>
-        //                   <cardNumber>${cardNumber}</cardNumber>
-        //                   <cardExpireMonth>${cardExpireMonth}</cardExpireMonth>
-        //                   <cardExpireYear>${cardExpireYear}</cardExpireYear>
-        //                   <cardCvc>${cardCvc}</cardCvc>`
-
-        // const cardAndUserId_xml = `<cardId>${cardId}</cardId>
-        //                            <userId>${userId}</userId>`
-
-
-                
-        // if (!installment) return resolve({
-        //     error: "Installment bulumanadı !"
-        // })
-
-        // const installment_xml = `<installment>${installment}</installment>`
-
-
         const {
             orderId,
             amount
