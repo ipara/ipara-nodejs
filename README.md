@@ -4,10 +4,16 @@ iPara - Nodejs Kütüphanesi
 iPara Nodejs Kütüphanesidir. iPara API'lerine çok hızlı bir şekilde bağlanmanızı sağlayan bu projeyi indirip hızlıca inceleyebilirsiniz.
 
 ## Notlar
-
-- iPara ile ilgili fonksiyonların hepsi ./ipara/index.js dosyasında. Sadece index.js yi çekerek tüm fonksiyonlara ulaşabilirsiniz.
-- Helpers fonksiyonların tamamı ./helpers/index.js dosyasında. Sadece index.js dosyasını çekerek tüm fonksiyonlara ulaşabilirsiniz.
-- Router klasöründe api.js dosyasında örnek çalıştırmaları bulabilirsiniz. 
+- Projeyi çalıştırmak için gerekli adımlar aşağıdaki gibidir:
+  1) Güncel nodejs ve npm sürümünün bilgisayarınızda kurulu olması gerekmektedir. Nodejs v6 ve üstü, npm için ise v5 ve üstü versiyonların kullanıması önerilir.
+  2) Dilediğiniz editor veya nodejs destekler IDE yardımı ile projeyi başlatmak mümkündür.
+  3) Projenin asıl giriş dosyası "server.js" olarak tanımlanmıştır. Kullanım esnasında
+      Console(CLI) üzerinden "to/project/directory> node .\server.js" şeklindeki komut ile projeyi çalıştırabilirsiniz.
+  4) Konsol içinde çıkan uyarılara göre projeyi ayarlayabilir ve gösterilen URL üzerinden deneyebilirsiniz.
+  5) Projeyi doğru şekilde çalıştırmak için, sizlere iPara üyeliğiniz aşamasında verilmiş olan gizli ve açık anahtar bilginizi projenin ".\settings.js" dosyasında eklediğinizden emin olunuz.
+- iPara ile ilgili fonksiyonların hepsi ./ipara/index.js dosyasındadır. Sadece index.js yi çekerek tüm fonksiyonlara ulaşabilirsiniz.
+- Helpers fonksiyonların tamamı ./helpers/index.js dosyasındadır. Sadece index.js dosyasını çekerek tüm fonksiyonlara ulaşabilirsiniz.
+- Router klasöründe api.js dosyasında örnek çalıştırmaları bulabilirsiniz.
 
 
 * Servisleri kullanabilmek için iPara kurum başvuru aşamalarını tamamlamış olmanız gerekmektedir. Başvuru adımlarını tamamladıktan sonra kurum panelinizden alabileceğiniz public ve private key bilgileri ile servisleri kullanabilirsiniz.
@@ -42,7 +48,7 @@ Gerekli ortam değişkenleri (**environment variables**)
 
 ## Test Kartları
 
-Testleriniz sırasında aşağıdaki kart numaralarını ve diğer bilgileri kullanabilirsiniz. 
+Testleriniz sırasında aşağıdaki kart numaralarını ve diğer bilgileri kullanabilirsiniz.
 
 | Sıra No 	| Kart Numarası    	| SKT   	| CVC 	|
 |---------	|------------------	|-------	|-----	|
@@ -64,15 +70,15 @@ Testleriniz sırasında aşağıdaki kart numaralarını ve diğer bilgileri kul
 | 16      	| 4029400184884303 	| 01/23 	| 378 	|
 
 ## Hash Hesaplama
-iPara servislerine entegre olurken alınan hataların en sık karşılaşılanı hash değerinin doğru hesaplanmasıdır. Hash değeri her servise göre değişen verilerin yanyana eklenmesi ile oluşan değerin bir dizi işleme tabi tutulması ile oluşur. 
+iPara servislerine entegre olurken alınan hataların en sık karşılaşılanı hash değerinin doğru hesaplanmasıdır. Hash değeri her servise göre değişen verilerin yanyana eklenmesi ile oluşan değerin bir dizi işleme tabi tutulması ile oluşur.
 
-Aşağıdaki adreste hash hesaplama ile ilgili detaylar yer almaktadır. Yine burada yer alan interaktif fonksiyon ile hesapladığınız hash fonksiyonlarını test edebilirsiniz. 
+Aşağıdaki adreste hash hesaplama ile ilgili detaylar yer almaktadır. Yine burada yer alan interaktif fonksiyon ile hesapladığınız hash fonksiyonlarını test edebilirsiniz.
 
-[iPara Hash Hesaplama](https://dev.ipara.com.tr/#hashCalculate) 
+[iPara Hash Hesaplama](https://dev.ipara.com.tr/#hashCalculate)
 
-Her örnek projenin Helper sınıfı içinde hash hesaplama ile alakalı bir fonksiyon bulunmaktadır. Entegrasyon sırasıdna bu hazır fonksiyonları da kullanabilirsiniz. 
+Her örnek projenin Helper sınıfı içinde hash hesaplama ile alakalı bir fonksiyon bulunmaktadır. Entegrasyon sırasıdna bu hazır fonksiyonları da kullanabilirsiniz.
 
-## Canlı Ortama Geçiş 
+## Canlı Ortama Geçiş
 
 * Test ortamında kullandığınız statik verilerin canlı ortamda gerçek müşteri datasıyla değiştirildiğinden emin olun.
 Canlı ortamda yanlış, sabit data gönderilmediğinden emin olun. Gönderdiğiniz işlemlere ait verileri mutlaka size özel panelden görüntüleyin.
@@ -81,4 +87,4 @@ Canlı ortamda yanlış, sabit data gönderilmediğinden emin olun. Gönderdiği
 * Hassas olmayan verileri ve servis yanıtlarını, hata çözümü ve olası sorunların çözümünde yardımcı olması açısından loglamaya dikkat edin.
 * Canlı ortama geçiş sonrası ilk işlemleri kendi kredi kartlarınız ile deneyerek sonuçlarını size özel Kurum ekranlarından görüntüleyin. Sonuçların ve işlemlerin doğru tamamlandığından emin olun.
 
-Sorularınız olması durumunda bize [Destek](http://dev.ipara.com.tr/Home/Support) üzerinden yazabilirsiniz. 
+Sorularınız olması durumunda bize [Destek](http://dev.ipara.com.tr/Home/Support) üzerinden yazabilirsiniz.
