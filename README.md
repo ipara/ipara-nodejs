@@ -3,28 +3,31 @@ iPara - Nodejs Kütüphanesi
 
 iPara Nodejs Kütüphanesidir. iPara API'lerine çok hızlı bir şekilde bağlanmanızı sağlayan bu projeyi indirip hızlıca inceleyebilirsiniz.
 
-## Notlar
-- Projeyi çalıştırmak için gerekli adımlar aşağıdaki gibidir:
+## Önemli Notlar
+
+* iPara ile ilgili fonksiyonların hepsi ./ipara/index.js dosyasındadır. Sadece index.js yi çekerek tüm fonksiyonlara ulaşabilirsiniz.
+* Helpers fonksiyonların tamamı ./helpers/index.js dosyasındadır. Sadece index.js dosyasını çekerek tüm fonksiyonlara ulaşabilirsiniz.
+* Router klasöründe api.js dosyasında örnek çalıştırmaları bulabilirsiniz.
+* Servisleri kullanabilmek için iPara kurum başvuru aşamalarını tamamlamış olmanız gerekmektedir. Başvuru adımlarını tamamladıktan sonra kurum panelinizden alabileceğiniz public ve private key bilgileri ile servisleri kullanabilirsiniz.
+* Entegrasyon işlemlerinde encoding “UTF-8” kullanılması gerekmektedir. Özellikle token parametresinden kaynaklı alınan hataların büyük çoğunluğu encoding problemlerinden kaynaklanmaktadır. Ek olarak XML dili için olan özel karakterlerin gönderiminde hata almamak için yine encoding yapılması gerekmektedir.
+* Servis isteği yaparaken göndermiş olduğunuz alanların başında ve sonunda oluşabilecek boşluk alanlarını kaldırmanızı ( trim() ) önemle rica ederiz. Çünkü bu alanlar oluşacak hash sonuçlarını etkilemektedir.
+* Entegrasyon dahilinde gönderilen input alanlarında, kart numarası alanı dışında kart numarası bilgisi gönderilmesi halinde işlem reddedilecektir.
+
+## Önemli Uyarı:
+
+iPara örnek projelerinin amacı, yazılım geliştiricilere iPara servislerine entegre olabilecek bir proje örneği sunmak ve entegrasyon adımlarının daha iyi anlaşılmasını sağlamaktır. Projeleri doğrudan canlı ortamınıza alarak kod değişimi yapmadan kullanmanız için desteğimiz bulunmamaktadır. **Projeyi bir eğitsel kaynak (tutorial) olarak kullanınız.**
+
+## Kullanım
+
+iPara servislerini kullanabilmek için [iPara'ya](https://www.ipara.com.tr) üye olmalısınız. Üye olduktan sonra iPara sizinle private ve public keylerinizi paylaşacaktır. Paylaşılan bu anahtarları kendi projenizde ilgili yerlere yazarak saklamanız ve kullanmanız gerekmektedir.
+
+* Projeyi çalıştırmak için gerekli adımlar aşağıdaki gibidir:
   1) Güncel nodejs ve npm sürümünün bilgisayarınızda kurulu olması gerekmektedir. Nodejs v6 ve üstü, npm için ise v5 ve üstü versiyonların kullanıması önerilir.
   2) Dilediğiniz editor ile proje kodlarını okumak veya nodejs destekler IDE yardımı ile projeyi başlatmak mümkündür.
   3) Projenin asıl giriş dosyası "server.js" olarak tanımlanmıştır. Kullanım esnasında eğer IDE kullanmıyorsanız, Console(CLI) üzerinden "to/project/directory> node .\server.js" şeklindeki komut ile projeyi çalıştırabilirsiniz.
   4) Projenin bağlı dosyalarının kurulumu için "npm install" adımını unutmayınız. Bu projenin bağlı .js dosyalarını "node_modules" altında proje directory'ye eklemesini sağlayacaktır.
   5) Konsol içinde çıkan uyarılara göre projeyi ayarlayabilir ve gösterilen URL üzerinden deneyebilirsiniz.
   6) Projeyi doğru şekilde çalıştırmak için, sizlere iPara üyeliğiniz aşamasında verilmiş olan gizli ve açık anahtar bilginizi projenin ".\settings.js" dosyasında eklediğinizden emin olunuz.
-- iPara ile ilgili fonksiyonların hepsi ./ipara/index.js dosyasındadır. Sadece index.js yi çekerek tüm fonksiyonlara ulaşabilirsiniz.
-- Helpers fonksiyonların tamamı ./helpers/index.js dosyasındadır. Sadece index.js dosyasını çekerek tüm fonksiyonlara ulaşabilirsiniz.
-- Router klasöründe api.js dosyasında örnek çalıştırmaları bulabilirsiniz.
-
-
-* Servisleri kullanabilmek için iPara kurum başvuru aşamalarını tamamlamış olmanız gerekmektedir. Başvuru adımlarını tamamladıktan sonra kurum panelinizden alabileceğiniz public ve private key bilgileri ile servisleri kullanabilirsiniz.
-* Entegrasyon işlemlerinde encoding “UTF-8” kullanılması gerekmektedir. Özellikle token parametresinden kaynaklı alınan hataların büyük çoğunluğu encoding problemlerinden kaynaklanmaktadır. Ek olarak XML dili için olan özel karakterlerin gönderiminde hata almamak için yine encoding yapılması gerekmektedir.
-* Servis isteği yaparaken göndermiş olduğunuz alanların başında ve sonunda oluşabilecek boşluk alanlarını kaldırmanızı ( trim() ) önemle rica ederiz. Çünkü bu alanlar oluşacak hash sonuçlarını etkilemektedir.
-* Entegrasyon dahilinde gönderilen input alanlarında, kart numarası alanı dışında kart numarası bilgisi gönderilmesi halinde işlem reddedilecektir.
-
-
-## Kullanım
-
-iPara servislerini kullanabilmek için [iPara'ya](https://www.ipara.com.tr) üye olmalısınız. Üye olduktan sonra iPara sizinle private ve public keylerinizi paylaşacaktır. Paylaşılan bu anahtarları kendi projenizde ilgili yerlere yazarak saklamanız ve kullanmanız gerekmektedir.
 
 Gerekli ortam değişkenleri (**environment variables**)
 
@@ -34,7 +37,9 @@ Gerekli ortam değişkenleri (**environment variables**)
 - IPARA_MODE
 - IPARA_HASH_STRING
 
->- IPARA_PRIVATE_KEY, IPARA_PUBLIC_KEY mutlaka olması gerekmektedir. Aksi taktirde program çalışmayacaktır. Ayrıca baseUrl e dikkat ediniz.
+olarak .\settings.js içinde bulunmaktadır.
+
+>- IPARA_PRIVATE_KEY, IPARA_PUBLIC_KEY ve IPARA_BASE_URL bilgilerinin projeji çalıştırmadan önce girilmiş olması gerekmektedir, aksi taktirde program çalışmayacaktır.
 
 ## Kurulum
 
@@ -81,9 +86,10 @@ Her örnek projenin Helper sınıfı içinde hash hesaplama ile alakalı bir fon
 ## Canlı Ortama Geçiş
 
 * Test ortamında kullandığınız statik verilerin canlı ortamda gerçek müşteri datasıyla değiştirildiğinden emin olun.
-Canlı ortamda yanlış, sabit data gönderilmediğinden emin olun. Gönderdiğiniz işlemlere ait verileri mutlaka size özel panelden görüntüleyin.
+* Canlı ortamda yanlış, sabit data gönderilmediğinden emin olun. Gönderdiğiniz işlemlere ait verileri mutlaka size özel panelden görüntüleyin.
 * Geliştirmeler tamamlandıktan sonra ödeme adımlarını, iPara test kartları ile tüm olası durumlar için test edin ve sonuçlarını görüntüleyin.
-* iPara servislerinden dönen ve olabilecek tüm hataları karşılayacak ve müşteriye uygun cevabı gösterecek şekilde kodunuzu düzenleyin ve test edin. iPara hata kodları kullanıcı dostu mesajlar olup müşterinize gösterebilirsiniz.
+* iPara servislerinden dönen ve olabilecek tüm hataları karşılayacak ve müşteriye uygun cevabı gösterecek şekilde kodunuzu düzenleyin ve test edin.
+* iPara hata kodları kullanıcı dostu mesajlar olup müşterinize gösterebilirsiniz.
 * Hassas olmayan verileri ve servis yanıtlarını, hata çözümü ve olası sorunların çözümünde yardımcı olması açısından loglamaya dikkat edin.
 * Canlı ortama geçiş sonrası ilk işlemleri kendi kredi kartlarınız ile deneyerek sonuçlarını size özel Kurum ekranlarından görüntüleyin. Sonuçların ve işlemlerin doğru tamamlandığından emin olun.
 
