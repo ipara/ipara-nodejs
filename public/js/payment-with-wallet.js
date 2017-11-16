@@ -18,7 +18,8 @@ document.getElementById("pay").addEventListener("click", function (e) {
         target.disabled = false;
         var data = JSON.parse(ajax.response)
         if (data.error) return alert(data.error)
-        document.getElementById("result").innerHTML = JSON.stringify(data, null, 4)
+        const xml_data =  vkbeautify.xml(data.data);
+        document.getElementById("result").innerText = xml_data
     }
     ajax.send(JSON.stringify({
         userId : userId,

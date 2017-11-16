@@ -19,21 +19,11 @@ document.getElementById("pay").addEventListener("click", function (e) {
     ajax.onload = function () {
         target.innerHTML = "API Payment ile Ödeme"
         target.disabled = false;
-        var data = JSON.parse(ajax.response).authResponse
-        console.log(data)
+        var data = JSON.parse(ajax.response)
         if (data.error) return alert(data.error)
-        document.getElementById("result").innerHTML = "{\n" +
-            '"amount": "' + undefined2Null(data.amount) + '"\n' +
-            '"orderId": "' + undefined2Null(data.orderId) + '"\n' +
-            '"result": "' + undefined2Null(data.result) + '"\n' +
-            '"errorCode": "' + undefined2Null(data.errorCode) + '"\n' +
-            '"errorMessage": "' + undefined2Null(data.errorMessage) + '"\n' +
-            '"responseMessage": "' + undefined2Null(data.responseMessage) + '"\n' +
-            '"mode": "' + undefined2Null(data.mode) + '"\n' +
-            '"echo": "' + undefined2Null(data.echo) + '"\n' +
-            '"hash": "' + undefined2Null(data.hash) + '"\n' +
-            '"transactionDate": "' + undefined2Null(data.transactionDate) + '"\n' +
-            '}';
+        /* hack to encode HTML entities */
+        const xml_data =  vkbeautify.xml(data.data);
+        document.getElementById("result").innerText = xml_data
     }
     ajax.send(JSON.stringify({
         cardOwnerName: cardOwnerName,
