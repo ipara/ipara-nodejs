@@ -113,13 +113,10 @@ exports.api
         }
         ipara.ThreeDPaymentCompleteRequest(obj).then(results => {
             if (typeof results == "object" && results.error) return console.log(results.error)
-            parseString(results, function (err, result) {
-                if (err) throw new Error(err);
-                res.render("result", {
-                    results: result.authResponse,
-                    status: "İşlem Başarılı"
-                })
-            });
+            res.render("result", {
+                results: results,
+                status: "İşlem Başarılı"
+            })
         }).catch(err=>{
             console.log(err)
         })
@@ -127,7 +124,7 @@ exports.api
     })
     .post("/error", (req, res) => {
         res.render("result", {
-            results: req.body,
+            results: req.body.toString(),
             status: "İşlem Başarısız"
         })
     })
@@ -207,10 +204,9 @@ exports.api
         }
 
         ipara.ApiPaymentRequest(obj).then(results => {
-            parseString(results, function (err, result) {
-                if (err) throw new Error(err);
-                res.json(result)
-            });
+            res.json({
+                data : results
+            })
         }).catch(err=>{
             console.log(err)
         })
@@ -221,9 +217,9 @@ exports.api
         });
 
         ipara.PaymentInquiryRequest(req.body.quary).then(requestResult => {
-            parseString(requestResult, (err, result) => {
-                if (err) throw new Error(err);
-                res.json(result)
+            console.log(requestResult)
+            res.json({
+                data : requestResult
             })
         }).catch(err => {
             console.log(err)
@@ -335,13 +331,10 @@ exports.api
                 }
             }
         }
-
-
         ipara.ApiPaymentWithWallet(obj).then(results => {
-            parseString(results, function (err, result) {
-                if (err) throw new Error(err);
-                res.json(result)
-            });
+            res.json({
+                data : results
+            })
         }).catch(err=>{
             console.log(err)
         })
