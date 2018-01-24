@@ -16,15 +16,14 @@ const settings = {
     mode : process.env["IPARA_MODE"] || "T"
 }
 
-function errorHandler(text){
-    const textColor = '\x1b[36m%s\x1b[0m';
-    throw new Error(text, textColor)
+function checkStartup(){
+    const textColor = "\x1b[33m%s\x1b[0m";
+    if(!settings.privateKey) console.log(textColor,"iPara private key bulunamadı! Lütfen settings.js dosyasını düzenleyiniz...");
+    if(!settings.publicKey) console.log(textColor,"iPara public key bulunamadı! Lütfen settings.js dosyasını düzenleyiniz...");
+    if(!settings.baseURL) console.log(textColor,"iPara base url bulunamadı. Lütfen settings.js dosyasını düzenleyiniz...");
+    if(!settings.mode) console.log(textColor,"iPara mode bulunamadı. Lütfen settings.js dosyasını düzenleyiniz...")
 }
 
-if(!settings.privateKey) return errorHandler("iPara private key bulunamadı! Lütfen settings.js dosyasını düzenleyiniz...");
-if(!settings.publicKey) return errorHandler("iPara public key bulunamadı! Lütfen settings.js dosyasını düzenleyiniz...");
-if(!settings.baseURL) return errorHandler("iPara base url bulunamadı. Lütfen settings.js dosyasını düzenleyiniz...");
-if(!settings.mode) return errorHandler("iPara mode bulunamadı. Lütfen settings.js dosyasını düzenleyiniz...")
-
+checkStartup()
 
 module.exports = settings
