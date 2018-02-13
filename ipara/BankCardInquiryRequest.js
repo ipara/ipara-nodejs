@@ -9,7 +9,7 @@ function BankCardInquiryRequest(userId, cardId, clientIp) {
         })
         const data = JSON.stringify({
             userId: userId,
-            cardId : cardId || "",
+            cardId: cardId || "",
             clientIp: clientIp
         })
         const transactionDateForRequest = helpers.GetTransactionDateString();

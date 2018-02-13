@@ -1,27 +1,27 @@
 const settings = {
     //"Private Magaza Anahtarı  - size mağaza başvurunuz sonucunda gönderilen privaye key (gizli anahtar) bilgisini kullanınız."
-    privateKey : process.env.IPARA_PRIVATE_KEY || "",
+    privateKey: process.env.IPARA_PRIVATE_KEY || "",
 
     //"Public Magaza Anahtarı - size mağaza başvurunuz sonucunda gönderilen publik key (açık anahtar) bilgisini kullanınız.",
-    publicKey : process.env.IPARA_PUBLIC_KEY || "",
+    publicKey: process.env.IPARA_PUBLIC_KEY || "",
 
     //iPara web servisleri API url'lerinin başlangıç bilgisidir. Restful web servis isteklerini takip eden kodlar halinde bulacaksınız.
     // Örneğin "https://api.ipara.com/" + "/rest/payment/auth"  = "https://api.ipara.com/rest/payment/auth"
-    baseURL : process.env.IPARA_BASE_URL || "https://api.ipara.com/",
+    baseURL: process.env.IPARA_BASE_URL || "https://api.ipara.com/",
 
     // Kullandığınız iPara API versiyonudur.
-    version : "1.0",
+    version: "1.0",
 
     // Test -> T, entegrasyon testlerinin sırasında "T" modunu, canlı sisteme entegre olarak ödeme almaya başlamak için ise Prod -> "P" modunu kullanınız.
-    mode : process.env["IPARA_MODE"] || "T"
+    mode: process.env["IPARA_MODE"] || "T"
 }
 
-function checkStartup(){
+function checkStartup() {
     const textColor = "\x1b[33m%s\x1b[0m";
-    if(!settings.privateKey) console.log(textColor,"iPara private key bulunamadı! Lütfen settings.js dosyasını düzenleyiniz...");
-    if(!settings.publicKey) console.log(textColor,"iPara public key bulunamadı! Lütfen settings.js dosyasını düzenleyiniz...");
-    if(!settings.baseURL) console.log(textColor,"iPara base url bulunamadı. Lütfen settings.js dosyasını düzenleyiniz...");
-    if(!settings.mode) console.log(textColor,"iPara mode bulunamadı. Lütfen settings.js dosyasını düzenleyiniz...")
+    if (!settings.privateKey) console.log(textColor, "iPara private key bulunamadı! Lütfen settings.js dosyasını düzenleyiniz...");
+    if (!settings.publicKey) console.log(textColor, "iPara public key bulunamadı! Lütfen settings.js dosyasını düzenleyiniz...");
+    if (!settings.baseURL) console.log(textColor, "iPara base url bulunamadı. Lütfen settings.js dosyasını düzenleyiniz...");
+    if (!settings.mode) console.log(textColor, "iPara mode bulunamadı. Lütfen settings.js dosyasını düzenleyiniz...")
 }
 
 checkStartup()

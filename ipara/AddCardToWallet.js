@@ -6,17 +6,17 @@ const Guid = require("guid");
 
 function AddCardToWallet(userId, cardOwnerName, cardNumber, cardAlias, cardExpireMonth, cardExpireYear, clientIp) {
     return new Promise((resolve, reject) => {
-        if(!userId || !cardOwnerName || !cardNumber || !cardAlias || !cardExpireMonth || !cardExpireYear || !clientIp) return reject({
-            error : "Eksik alanlar var !"
+        if (!userId || !cardOwnerName ||  !cardNumber || !cardAlias || !cardExpireMonth || !cardExpireYear ||  !clientIp) return reject({
+            error: "Eksik alanlar var !"
         })
         const data = JSON.stringify({
-            userId : userId,
-            cardOwnerName : cardOwnerName,
-            cardNumber : cardNumber,
-            cardAlias : cardAlias,
-            cardExpireMonth : cardExpireMonth,
-            cardExpireYear : cardExpireYear,
-            clientIp : clientIp
+            userId: userId,
+            cardOwnerName: cardOwnerName,
+            cardNumber: cardNumber,
+            cardAlias: cardAlias,
+            cardExpireMonth: cardExpireMonth,
+            cardExpireYear: cardExpireYear,
+            clientIp: clientIp
         })
         const transactionDateForRequest = helpers.GetTransactionDateString();
         axios({
@@ -29,10 +29,10 @@ function AddCardToWallet(userId, cardOwnerName, cardNumber, cardAlias, cardExpir
                 'Content-Type': 'application/json',
                 'Content-Length': Buffer.byteLength(data)
             },
-            data : data
-        }).then(result=>{
+            data: data
+        }).then(result => {
             resolve(result.data)
-        }).catch(err=>{
+        }).catch(err => {
             reject(err)
         })
     })

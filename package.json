@@ -37,6 +37,7 @@
     "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
     "guid": "^0.0.12",
+    "pretty-data": "^0.40.0",
     "sha1": "^1.1.1",
     "xml2js": "^0.4.19"
   }

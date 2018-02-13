@@ -5,7 +5,7 @@ document.getElementById("pay").addEventListener("click", function (e) {
     var cardExpireMonth = document.getElementsByName("cardExpireMonth")[0].value;;
     var cardExpireYear = document.getElementsByName("cardExpireYear")[0].value;;
     var cardAlias = document.getElementsByName("cardAlias")[0].value;;
-    if (!userId || !cardOwnerName || !cardNumber || !cardExpireMonth ||  !cardExpireYear || !cardAlias) return alert("Eksik alanlar var !");
+    if (!userId || !cardOwnerName || !cardNumber || !cardExpireMonth || !cardExpireYear || !cardAlias) return alert("Eksik alanlar var !");
 
     var target = e.currentTarget;
 
@@ -27,6 +27,6 @@ document.getElementById("pay").addEventListener("click", function (e) {
         cardExpireMonth: cardExpireMonth,
         cardExpireYear: cardExpireYear,
         cardAlias: cardAlias,
-        userId : userId
+        userId: userId
     }))
 })

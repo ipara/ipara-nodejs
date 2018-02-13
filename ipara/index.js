@@ -9,13 +9,13 @@ const BankCardDeleteRequest = require("./BankCardDeleteRequest");
 const ApiPaymentWithWallet = require("./ApiPaymentWithWallet");
 
 module.exports = {
-    ApiPaymentRequest : ApiPaymentRequest,
-    ThreeDPaymentCompleteRequest : ThreeDPaymentCompleteRequest,
-    ThreeDPaymentInitRequest : ThreeDPaymentInitRequest,
-    PaymentInquiryRequest : PaymentInquiryRequest,
-    BinNumberInquiryRequest : BinNumberInquiryRequest,
-    AddCardToWallet : AddCardToWallet,
-    BankCardInquiryRequest : BankCardInquiryRequest,
-    BankCardDeleteRequest : BankCardDeleteRequest,
-    ApiPaymentWithWallet : ApiPaymentWithWallet
+    ApiPaymentRequest: ApiPaymentRequest,
+    ThreeDPaymentCompleteRequest: ThreeDPaymentCompleteRequest,
+    ThreeDPaymentInitRequest: ThreeDPaymentInitRequest,
+    PaymentInquiryRequest: PaymentInquiryRequest,
+    BinNumberInquiryRequest: BinNumberInquiryRequest,
+    AddCardToWallet: AddCardToWallet,
+    BankCardInquiryRequest: BankCardInquiryRequest,
+    BankCardDeleteRequest: BankCardDeleteRequest,
+    ApiPaymentWithWallet: ApiPaymentWithWallet
 }

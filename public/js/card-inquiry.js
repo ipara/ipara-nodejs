@@ -1,7 +1,7 @@
 document.getElementById("pay").addEventListener("click", function (e) {
     var userId = document.getElementsByName("userId")[0].value;
     var cardId = document.getElementsByName("cardId")[0].value;
-    
+
     if (!userId) return alert("Eksik alanlar var !");
 
     var target = e.currentTarget;
@@ -20,7 +20,7 @@ document.getElementById("pay").addEventListener("click", function (e) {
         document.getElementById("result").innerHTML = JSON.stringify(data, null, 4)
     }
     ajax.send(JSON.stringify({
-        userId : userId,
-        cardId : cardId
+        userId: userId,
+        cardId: cardId
     }))
 })

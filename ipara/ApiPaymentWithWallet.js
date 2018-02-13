@@ -97,11 +97,11 @@ function ApiPaymentWithWallet(obj) {
             if (purchaser.invoiceAddress) {
                 invoiceAddress = `<invoiceAddress><name>${(purchaser.invoiceAddress.name) || ""}</name>
                 <surname>${(purchaser.invoiceAddress.surname) || ""}</surname>
-                <address>${(purchaser.invoiceAddress.address )|| ""}</address>
+                <address>${(purchaser.invoiceAddress.address) || ""}</address>
                 <zipcode>${(purchaser.invoiceAddress.zipcode) || ""}</zipcode>
                 <city>${(purchaser.invoiceAddress.city) || ""}</city>
-                <tcCertificate>${purchaser.invoiceAddress.tcCertificate|| ""}</tcCertificate>
-                <country>${(purchaser.invoiceAddress.country)|| ""}</country>
+                <tcCertificate>${purchaser.invoiceAddress.tcCertificate || ""}</tcCertificate>
+                <country>${(purchaser.invoiceAddress.country) || ""}</country>
                 <taxNumber>${purchaser.invoiceAddress.taxNumber || ""}</taxNumber>
                 <taxOffice>${purchaser.invoiceAddress.taxOffice || ""}</taxOffice>
                 <companyName>${purchaser.invoiceAddress.companyName || ""}</companyName>

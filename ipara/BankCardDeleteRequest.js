@@ -10,8 +10,8 @@ function BankCardDeleteRequest(userId, cardId, clientIp) {
 
         const data = JSON.stringify({
             userId: userId,
-            cardId : cardId || "",
-            clientIp : clientIp
+            cardId: cardId || "",
+            clientIp: clientIp
         })
         const transactionDateForRequest = helpers.GetTransactionDateString();
         axios({

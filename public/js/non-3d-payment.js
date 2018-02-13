@@ -6,7 +6,7 @@ document.getElementById("pay").addEventListener("click", function (e) {
     var cardCvc = document.getElementsByName("cardCvc")[0].value;;
     var installment = document.getElementsByName("installment")[0].value;;
 
-    if (!cardOwnerName || !cardNumber || !cardExpireMonth ||  !cardExpireYear || !cardCvc || !installment) return alert("Eksik alanlar var !");
+    if (!cardOwnerName || !cardNumber || !cardExpireMonth || !cardExpireYear || !cardCvc || !installment) return alert("Eksik alanlar var !");
 
     var target = e.currentTarget;
 
@@ -22,7 +22,7 @@ document.getElementById("pay").addEventListener("click", function (e) {
         var data = JSON.parse(ajax.response)
         if (data.error) return alert(data.error)
         /* hack to encode HTML entities */
-        const xml_data =  vkbeautify.xml(data.data);
+        const xml_data = vkbeautify.xml(data.data);
         document.getElementById("result").innerText = xml_data
     }
     ajax.send(JSON.stringify({
