@@ -1,1 +1,13 @@
 node_modules
+*/bin
+*/obj
+**/bin
+**/obj
+*.suo
+*/packages
+**/packages
+.vs
+*/config
+.vs/config/applicationhost.config
+*.sln
+*.njsproj
