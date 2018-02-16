@@ -16,9 +16,7 @@ const settings = {
     mode: process.env["IPARA_MODE"] || "T"
 }
 
-
 const host = "localhost";
-
 const port = process.env.PORT || 3000;
 
 function buildPublishingAddress(host, port) {
