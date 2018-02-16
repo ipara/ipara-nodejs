@@ -45,5 +45,3 @@ module.exports = {
     PORT: port,
     HOST_URL: hostAddress
 }
-
-//module.exports = settings
