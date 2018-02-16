@@ -1,5 +1,5 @@
 const axios = require("axios");
-const settings = require("../settings");
+const settings = require("../settings").settings;
 const helpers = require("../helpers/index");
 const Guid = require("guid");
 

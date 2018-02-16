@@ -4,21 +4,11 @@ const parseString = require('xml2js').parseString;
 const Guid = require("guid");
 
 const helpers = require("../helpers/index");
-const settings = require("../settings");
+const settings = require("../settings").settings;
+const hosturl = require("../settings").HOST_URL;
 const ipara = require("../ipara/index");
 
 exports.api = express.Router();
-
-exports.api.post("/error", (req, res) => {
-    var body = helpers.Object2XML(req.body, "authResponse");
-    if (body == null || body == "") {
-        body = "Yanıt Boş!";
-    }
-    res.render("result", {
-        status: "İşlem Başarısız",
-        results: body
-    })
-})
 
 exports.api.post('/init-3d-payment-request', (req, res) => {
     if (!req.body || !req.body.cardOwnerName || !req.body.cardNumber || !req.body.cardExpireMonth || !req.body.cardExpireYear || !req.body.cardCvc || !req.body.installment) return res.json({
@@ -40,11 +30,23 @@ exports.api.post('/init-3d-payment-request', (req, res) => {
         purchaserName: "Murat",
         purchaserSurname: "Kaya",
         purchaserEmail: "murat@kaya.com",
-        successUrl: "http://localhost:3000/api/success",
-        failureUrl: "http://localhost:3000/api/error"
+        successUrl: hosturl + "/api/success",
+        failureUrl: hosturl + "/api/error"
     }
     res.render("3d-form", {
         form: ipara.ThreeDPaymentInitRequest(obj)
+    })
+})
+
+
+exports.api.post("/error", (req, res) => {
+    var body = helpers.Object2XML(req.body, "authResponse");
+    if (body == null || body == "") {
+        body = "Yanıt Boş!";
+    }
+    res.render("result", {
+        status: "İşlem Başarısız",
+        results: body
     })
 })
 

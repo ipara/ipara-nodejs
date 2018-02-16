@@ -1,5 +1,5 @@
 const computeHash = require("./computeHash");
-const settings = require("../settings");
+const settings = require("../settings").settings
 
 function Validate3DReturn(paymentResponse) {
     if (!paymentResponse || !paymentResponse.hash) return {

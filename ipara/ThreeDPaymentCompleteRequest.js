@@ -1,7 +1,7 @@
 const threeDObjectCreater = require("./ThreeDPaymentInitRequest");
 
 const axios = require("axios");
-const settings = require("../settings");
+const settings = require("../settings").settings;
 const helpers = require("../helpers/index");
 
 function ThreeDPaymentCompleteRequest(obj) {
