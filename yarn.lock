@@ -266,9 +266,9 @@ guid@^0.0.12:
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/guid/-/guid-0.0.12.tgz#9137c52b185f7de12490b9bebcc1660b9025fe0c"
 
-handlebars@^4.0.5:
-  version "4.0.10"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.10.tgz#3d30c718b09a3d96f23ea4cc1f403c4d3ba9ff4f"
+handlebars@^4.5.3:
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.5.3.tgz#3d30c718b09a3d96f23ea4cc1f403c4d3ba9ff4f"
   dependencies:
     async "^1.4.0"
     optimist "^0.6.1"
