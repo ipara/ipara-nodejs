@@ -2,35 +2,47 @@ const axios = require("axios");
 const settings = require("../settings").settings;
 const helpers = require("../helpers/index");
 
-function BankCardDeleteRequest(userId, cardId, clientIp) {
+function BankCardDeleteRequest(obj) {
     return new Promise((resolve, reject) => {
-        if (!userId) return reject({
-            error: "userId bulunamadı !"
-        })
+        if (!obj.userId)
+            return reject({
+                error: "userId bulunamadı !",
+            });
 
         const data = JSON.stringify({
-            userId: userId,
-            cardId: cardId || "",
-            clientIp: clientIp
-        })
-        const transactionDateForRequest = helpers.GetTransactionDateString();
+            userId: obj.userId,
+            cardId: obj.cardId || "",
+            clientIp: obj.clientIp,
+        });
+
+        const transactionDate = helpers.GetTransactionDateString();
+        const token = helpers.CreateToken(
+            settings.publicKey,
+            settings.privateKey +
+                obj.userId +
+                obj.cardId +
+                obj.clientIp +
+                transactionDate
+        );
         axios({
             url: settings.baseURL + "/bankcard/delete",
-            method: 'POST',
+            method: "POST",
             headers: {
-                "transactionDate": (transactionDateForRequest),
-                "version": (settings.version),
-                "token": (helpers.CreateToken(settings.publicKey, settings.privateKey + userId + cardId + clientIp + transactionDateForRequest)),
-                'Content-Type': 'application/json',
-                'Content-Length': Buffer.byteLength(data)
+                transactionDate,
+                version: settings.version,
+                token,
+                "Content-Type": "application/json",
+                "Content-Length": Buffer.byteLength(data),
             },
-            data: data
-        }).then(result => {
-            resolve(result.data)
-        }).catch(err => {
-            reject(err)
+            data,
         })
-    })
+            .then((result) => {
+                resolve(result.data);
+            })
+            .catch((err) => {
+                reject(err);
+            });
+    });
 }
 
 module.exports = BankCardDeleteRequest;

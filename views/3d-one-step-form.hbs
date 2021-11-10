@@ -1,0 +1,24 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>3D Secure Yönlendirme İşlemi</title>
+    </head>
+    <body>
+        <form
+            action="https://api.ipara.com/rest/payment/threed"
+            method="POST"
+            id="iParaMerchantRequestForm"
+        >
+            <input
+                type="hidden"
+                name="parameters"
+                value="{{form}}"
+            />
+        </form>
+        <script>
+            document.getElementById('iParaMerchantRequestForm').submit();
+        </script>
+    </body>
+</html>

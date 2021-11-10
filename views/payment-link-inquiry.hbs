@@ -1,0 +1,122 @@
+<html lang="en">
+
+    <head>
+        {{> head}}                 
+    </head>
+
+    <body>
+        <div class="wrapper">
+            {{> navbar}}
+            <div class="content">
+                <div class="content-header">
+                    Ödeme Linklerini Listele
+                </div>
+                <div class="form-area">
+                    <label>Müşteri Email (Opsiyonel):</label>
+                    <input
+                        name="email"
+                        type="text"
+                        class="form-control"
+                        value="fatih@domain.com"
+                    />
+                    <label>Müşteri Cep Telefonu (Opsiyonel):</label>
+                    <input
+                        name="gsm"
+                        type="text"
+                        class="form-control"
+                        value="5881231212"
+                    />
+                    <label>Başlangıç Tarihi (Opsiyonel) (**):</label>
+                    <div class="horizonal-form">
+                        <input
+                            name="startDateDay"
+                            type="text"
+                            class="form-control"
+                            value="10"
+                        />
+                        /
+                        <input
+                            name="startDateMonth"
+                            type="text"
+                            class="form-control"
+                            value="10"
+                        />
+                        /
+                        <input
+                            name="startDateYear"
+                            type="text"
+                            class="form-control"
+                            value="2021"
+                        />
+                    </div>
+                    <label>Bitiş Tarihi (Opsiyonel) (**):</label>
+                    <div class="horizonal-form">
+                        <input
+                            name="expireDateDay"
+                            type="text"
+                            class="form-control"
+                            value="10"
+                        />
+                        /
+                        <input
+                            name="expireDateMonth"
+                            type="text"
+                            class="form-control"
+                            value="11"
+                        />
+                        /
+                        <input
+                            name="expireDateYear"
+                            type="text"
+                            class="form-control"
+                            value="2021"
+                        />
+                    </div>
+                    <label>Ödeme Durum Bilgisi (Opsiyonel):</label>
+                    <select name="linkState" class="form-control">
+                        <option value="">Seçiniz</option>
+                        <option value="0">Link İsteği Alındı</option>
+                        <option value="1">Link URL’i yaratıldı</option>
+                        <option value="2">Link Gönderildi, Ödeme Bekleniyor</option>
+                        <option value="3">Link ile Ödeme Başarılı</option>
+                        <option value="98">Link Zaman Aşımına Uğradı</option>
+                        <option value="99">Link Silindi</option>
+                    </select>
+                    <label>Sayfa Sayısı (5-15) (*):</label>
+                    <select name="pageSize" class="form-control">
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                    </select>
+                    <label>Sayfa Index (*):</label>
+                    <input
+                        name="pageIndex"
+                        type="text"
+                        class="form-control"
+                        value="1"
+                    />
+                    <button
+                        class="btn success"
+                        type="submit"
+                        id="pay"
+                    >Listele</button>
+                    <p>** Başlangış ve Bitiş tarihi parametreleri bir çift olarak çalışmaktadır. Bu nedenle eğer biri istek içine eklenmiş ise, diğerinin de eklenmesi gerekmektedir.</p>
+                </div>
+                <pre id="result">
+
+                </pre>
+            </div>
+        </div>
+        <script src="/js/template.js"></script>
+        <script src="/js/payment-link-inquiry.js"></script>
+    </body>
+
+</html>

@@ -1,8 +1,8 @@
 document.getElementById("pay").addEventListener("click", function (e) {
-    var binNumber = document.getElementsByName("binNumber")[0].value;
+    var orderId = document.getElementsByName("orderId")[0].value;
     var amount = document.getElementsByName("amount")[0].value;
-    var threeD = document.getElementsByName("threeD")[0].value;
-    if (!binNumber || !amount || !threeD) return alert("Eksik alanlar var !");
+
+    if (!orderId || !amount) return alert("Eksik alanlar var !");
 
     var target = e.currentTarget;
 
@@ -10,24 +10,23 @@ document.getElementById("pay").addEventListener("click", function (e) {
     target.disabled = true;
 
     var ajax = new XMLHttpRequest();
-    ajax.open("POST", "/api/bin-inquiry", true);
+    ajax.open("POST", "/api/payment-refund-inquiry", true);
     ajax.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     ajax.onload = function () {
-        target.innerHTML = "Sorgula";
+        target.innerHTML = "İade Sorgula";
         target.disabled = false;
         var data = JSON.parse(ajax.response);
         if (data.error) return alert(data.error);
         document.getElementById("result").innerHTML = JSON.stringify(
-            data,
+            data.data,
             null,
             4
         );
     };
     ajax.send(
         JSON.stringify({
-            binNumber,
+            orderId,
             amount,
-            threeD,
         })
     );
 });

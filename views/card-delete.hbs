@@ -1,31 +1,44 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    {{> head}}
-</head>
+    <head>
+        {{> head}} 
+    </head>
 
-<body>
-    <div class="wrapper">
-        {{> navbar}}
-        <div class="content">
-            <div class="content-header">
-                Cüzdandan Kart Sil
-            </div>
-            <div class="form-area">
-                <label>Kullanıcı Id:</label>
-                <input name="userId" type="text" class="form-control" value="123456">
-                <label>Kart ID (Opsiyonel):</label>
-                <input name="cardId" type="text" class="form-control" value="">
-                <button class="btn success" type="submit" id="pay">Sorgula</button>
-            </div>
-            <pre id="result">
+    <body>
+        <div class="wrapper">
+            {{> navbar}}
+            <div class="content">
+                <div class="content-header">
+                    Cüzdandan Kart Sil
+                </div>
+                <div class="form-area">
+                    <label>Kullanıcı Id (*):</label>
+                    <input
+                        name="userId"
+                        type="text"
+                        class="form-control"
+                        value="123456"
+                    />
+                    <label>Kart Id (Opsiyonel):</label>
+                    <input
+                        name="cardId"
+                        type="text"
+                        class="form-control"
+                        value=""
+                    />
+                    <button
+                        class="btn success"
+                        type="submit"
+                        id="pay"
+                    >Sorgula</button>
+                </div>
+                <pre id="result">
 
-            </pre>
+                </pre>
+            </div>
         </div>
-    </div>
-    <script src="/js/card-delete.js"></script>
-    <script src="/js/template.js"></script>
-</body>
+        <script src="/js/card-delete.js"></script>
+        <script src="/js/template.js"></script>
+    </body>
 
 </html>

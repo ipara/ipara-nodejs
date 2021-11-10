@@ -2,30 +2,27 @@ const axios = require("axios");
 const settings = require("../settings").settings;
 const helpers = require("../helpers/index");
 
-function BankCardInquiryRequest(obj) {
+function PaymentInquiryWithTimeRequest(obj) {
     return new Promise((resolve, reject) => {
-        if (!obj.userId)
+        if (!obj.startDate || !obj.endDate)
             return reject({
-                error: "userId bulunamadı !",
+                error: "Eksik alan var!",
             });
 
         const data = JSON.stringify({
-            userId: obj.userId,
-            cardId: obj.cardId || "",
-            clientIp: obj.clientIp,
+            startDate: obj.startDate,
+            endDate: obj.endDate,
+            mode: settings.mode,
+            echo: "",
         });
 
         const transactionDate = helpers.GetTransactionDateString();
         const token = helpers.CreateToken(
             settings.publicKey,
-            settings.privateKey +
-                obj.userId +
-                obj.cardId +
-                obj.clientIp +
-                transactionDate
+            settings.privateKey + settings.mode + transactionDate
         );
         axios({
-            url: settings.baseURL + "/bankcard/inquiry",
+            url: settings.baseURL + "/rest/payment/search",
             method: "POST",
             headers: {
                 transactionDate,
@@ -45,4 +42,4 @@ function BankCardInquiryRequest(obj) {
     });
 }
 
-module.exports = BankCardInquiryRequest;
+module.exports = PaymentInquiryWithTimeRequest;

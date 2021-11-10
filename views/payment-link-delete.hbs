@@ -1,7 +1,7 @@
 <html lang="en">
 
     <head>
-        {{> head}}            
+        {{> head}}   
     </head>
 
     <body>
@@ -9,29 +9,28 @@
             {{> navbar}}
             <div class="content">
                 <div class="content-header">
-                    Ödeme Sorgulama
+                    Ödeme Linki Sil
                 </div>
                 <div class="form-area">
-                    <label>Sipariş Numarası (*):</label>
+                    <label>Link Id (**):</label>
                     <input
-                        name="orderId"
+                        name="linkId"
                         type="text"
                         class="form-control"
-                        value="02399bf1-b918-4c31-f76c-8e92a21e4197"
+                        value=""
                     />
-                    <button
-                        class="btn success"
-                        type="submit"
-                        id="pay"
-                    >Ödeme Sorgula</button>
+
+                    <button class="btn success" type="submit" id="pay">Ödeme
+                        Linkini Sil</button>
+                    <p>** Ödeme linki oluşturduğunuzda dönen "linkPaymentId" parametresidir.</p>
                 </div>
                 <pre id="result">
 
                 </pre>
             </div>
         </div>
-        <script src="/js/payment-inquiry.js"></script>
         <script src="/js/template.js"></script>
+        <script src="/js/payment-link-delete.js"></script>
     </body>
 
 </html>

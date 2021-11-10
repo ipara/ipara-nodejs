@@ -2,30 +2,22 @@ const axios = require("axios");
 const settings = require("../settings").settings;
 const helpers = require("../helpers/index");
 
-function BankCardInquiryRequest(obj) {
+function PaymentRefundRequest(obj) {
     return new Promise((resolve, reject) => {
-        if (!obj.userId)
-            return reject({
-                error: "userId bulunamadı !",
-            });
-
         const data = JSON.stringify({
-            userId: obj.userId,
-            cardId: obj.cardId || "",
+            orderId: obj.orderId,
+            refundHash: obj.refundHash,
+            amount: obj.amount,
             clientIp: obj.clientIp,
         });
 
         const transactionDate = helpers.GetTransactionDateString();
         const token = helpers.CreateToken(
             settings.publicKey,
-            settings.privateKey +
-                obj.userId +
-                obj.cardId +
-                obj.clientIp +
-                transactionDate
+            settings.privateKey + obj.orderId + obj.clientIp + transactionDate
         );
         axios({
-            url: settings.baseURL + "/bankcard/inquiry",
+            url: settings.baseURL + "corporate/payment/refund",
             method: "POST",
             headers: {
                 transactionDate,
@@ -34,7 +26,7 @@ function BankCardInquiryRequest(obj) {
                 "Content-Type": "application/json",
                 "Content-Length": Buffer.byteLength(data),
             },
-            data,
+            data: data,
         })
             .then((result) => {
                 resolve(result.data);
@@ -45,4 +37,4 @@ function BankCardInquiryRequest(obj) {
     });
 }
 
-module.exports = BankCardInquiryRequest;
+module.exports = PaymentRefundRequest;

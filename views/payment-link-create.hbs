@@ -1,0 +1,150 @@
+<html lang="en">
+
+    <head>
+        {{> head}}   
+    </head>
+
+    <body>
+        <div class="wrapper">
+            {{> navbar}}
+            <div class="content">
+                <div class="content-header">
+                    Ödeme Linki Oluştur
+                </div>
+                <div class="form-area">
+                    <label>Müşteri Adı (*):</label>
+                    <input
+                        name="name"
+                        type="text"
+                        class="form-control"
+                        value="Fatih"
+                    />
+                    <label>Müşteri Soyadı (*):</label>
+                    <input
+                        name="surname"
+                        type="text"
+                        class="form-control"
+                        value="Coskun"
+                    />
+                    <label>Müşteri TCKN (Opsiyonel):</label>
+                    <input
+                        name="tcCertificate"
+                        type="text"
+                        class="form-control"
+                        value=""
+                    />
+                    <label>Müşteri Vergi No (Opsiyonel):</label>
+                    <input
+                        name="taxNumber"
+                        type="text"
+                        class="form-control"
+                        value=""
+                    />
+                    <label>Müşteri Email (*):</label>
+                    <input
+                        name="email"
+                        type="text"
+                        class="form-control"
+                        value="fatih@domain.com"
+                    />
+                    <label>Müşteri Cep Telefonu (*):</label>
+                    <input
+                        name="gsm"
+                        type="text"
+                        class="form-control"
+                        value="5881231212"
+                    />
+                    <label>Tahsil Edilecek Tutar (TL) (**):</label>
+                    <input
+                        name="amount"
+                        type="text"
+                        class="form-control"
+                        value="1000"
+                    />
+                    <label>3D Secure (*):</label>
+                    <select
+                        class="form-control"
+                        data-style="btn-info"
+                        name="threeD"
+                    >
+                        <optgroup label="Seç">
+                            <option name="yes" value="true">Evet</option>
+                            <option name="no" value="false">Hayır</option>
+                        </optgroup>
+                    </select>
+                    <label>Link Geçerlilik Süresi (Gün/Ay/Yıl) (*):</label>
+                    <div class="horizonal-form">
+                        <input
+                            name="expireDateDay"
+                            type="text"
+                            class="form-control"
+                            value="10"
+                        />
+                        /
+                        <input
+                            name="expireDateMonth"
+                            type="text"
+                            class="form-control"
+                            value="11"
+                        />
+                        /
+                        <input
+                            name="expireDateYear"
+                            type="text"
+                            class="form-control"
+                            value="2021"
+                        />
+                    </div>
+                    <label>Taksit (Opsiyonel):</label>
+                    <select name="installment" class="form-control">
+                        <option value="">Seçiniz</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <label>Müşteriye Bilgilendirme Mailli Gönder (*):</label>
+                    <select
+                        class="form-control"
+                        data-style="btn-info"
+                        name="sendEmail"
+                    >
+                        <optgroup label="Seç">
+                            <option name="yes" value="true">Evet</option>
+                            <option name="no" value="false">Hayır</option>
+                        </optgroup>
+                    </select>
+                    <label>Komisyon Kime Yansıtılacak (Opsiyonel):</label>
+                    <select
+                        class="form-control"
+                        data-style="btn-info"
+                        name="commissionType"
+                    >
+                        <optgroup label="Seç">
+                            <option name="yes" value="1">Satıcı (Varsayılan)</option>
+                            <option name="no" value="2">Müşteri</option>
+                        </optgroup>
+                    </select>
+
+                    <button class="btn success" type="submit" id="pay">Ödeme
+                        Linki Oluştur</button>
+                    <p>** Sipariş tutarı kuruş ayracı olmadan gönderilmelidir. Örneğin; 1 TL 100, 12 1200, 130 13000, 1.05 105, 1.2 120 olarak gönderilmelidir.</p>
+                </div>
+                <pre id="result">
+
+                </pre>
+            </div>
+        </div>
+        <script src="/js/template.js"></script>
+        <script src="/js/payment-link-create.js"></script>
+    </body>
+
+</html>

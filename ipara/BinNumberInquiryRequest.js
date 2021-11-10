@@ -2,32 +2,43 @@ const axios = require("axios");
 const settings = require("../settings").settings;
 const helpers = require("../helpers/index");
 
-function BinNumberInquiryRequest(binNumber) {
+function BinNumberInquiryRequest(obj) {
     return new Promise((resolve, reject) => {
-        if (!binNumber) return reject({
-            error: "binNumber bulunamadı !"
-        })
+        if (!obj.binNumber || !obj.amount)
+            return reject({
+                error: "Eksik alanlar var !",
+            });
+
         const data = JSON.stringify({
-            binNumber: binNumber
-        })
-        const transactionDateForRequest = helpers.GetTransactionDateString();
+            binNumber: obj.binNumber,
+            amount: obj.amount,
+            threeD: obj.threeD,
+        });
+
+        const transactionDate = helpers.GetTransactionDateString();
+        const token = helpers.CreateToken(
+            settings.publicKey,
+            settings.privateKey + obj.binNumber + transactionDate
+        );
         axios({
-            url: settings.baseURL + "/rest/payment/bin/lookup",
-            method: 'POST',
+            url: settings.baseURL + "/rest/payment/bin/lookup/v2",
+            method: "POST",
             headers: {
-                "transactionDate": (transactionDateForRequest),
-                "version": (settings.version),
-                "token": (helpers.CreateToken(settings.publicKey, settings.privateKey + binNumber + transactionDateForRequest)),
-                'Content-Type': 'application/json',
-                'Content-Length': Buffer.byteLength(data)
+                transactionDate,
+                version: settings.version,
+                token,
+                "Content-Type": "application/json",
+                "Content-Length": Buffer.byteLength(data),
             },
-            data: data
-        }).then(result => {
-            resolve(result.data)
-        }).catch(err => {
-            reject(err)
+            data: data,
         })
-    })
+            .then((result) => {
+                resolve(result.data);
+            })
+            .catch((err) => {
+                reject(err);
+            });
+    });
 }
 
 module.exports = BinNumberInquiryRequest;
