@@ -1,114 +1,178 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    {{> head}}
-</head>
+    <head>
+        {{> head}}      
+    </head>
 
-<body>
-    <div class="wrapper">
-        {{> navbar}}
-        <div class="content">
-            <div class="content-header">
-                Sepet Bilgileri
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ürün</th>
-                        <th>Kod</th>
-                        <th>Adet</th>
-                        <th>Birim Fiyatı</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Telefon</td>
-                        <td>TLF0001</td>
-                        <td>1</td>
-                        <td>50 TL</td>
-                    </tr>
-                    <tr>
-                        <td>Bilgisayar</td>
-                        <td>TLF0001</td>
-                        <td>1</td>
-                        <td>50 TL</td>
-                    </tr>
-                    <tr class="total">
-                        <td>Toplam</td>
-                        <td></td>
-                        <td></td>
-                        <td>100 TL</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="content-header">
-                Kargo Adresi Bilgileri
-            </div>
-            <div class="fielset">
-                <label style="font-weight:bold;">Ad :</label> Murat<br>
-                <label style="font-weight:bold;">Soyad :</label> Kaya <br>
-                <label style="font-weight:bold;">Adres :</label> Mevlüt Pehlivan Mah. Multinet Plaza Şişli <br>
-                <label style="font-weight:bold;">Posta Kodu :</label> 34782 <br>
-                <label style="font-weight:bold;">Şehir :</label> İstanbul <br>
-                <label style="font-weight:bold;">Ülke :</label> Türkiye <br>
-                <label style="font-weight:bold;">Telefon Numarası:</label> 2123886600 <br>
-            </div>
-            <div class="content-header">
-                Fatura Adresi Bilgileri
-            </div>
-            <div class="fielset">
-                <label style="font-weight:bold;">Ad :</label> Murat<br>
-                <label style="font-weight:bold;">Soyad :</label> Kaya<br>
-                <label style="font-weight:bold;">Adres :</label> Mevlüt Pehlivan Mah. Multinet Plaza Şişli<br>
-                <label style="font-weight:bold;">Posta Kodu :</label> 34782<br>
-                <label style="font-weight:bold;">Şehir :</label> İstanbul<br>
-                <label style="font-weight:bold;">Ülke :</label> Türkiye<br>
-                <label style="font-weight:bold;">TC Kimlik Numarası :</label> 1234567890<br>
-                <label style="font-weight:bold;">Telefon Numarası:</label> 2123886600<br>
-                <label style="font-weight:bold;">Vergi Numarası :</label> 123456<br>
-                <label style="font-weight:bold;">Vergi Dairesi Adı :</label> Kozyatağı<br>
-                <label style="font-weight:bold;">Firma Adı:</label> iPara
-            </div>
-            <div class="content-header">
-                Kart Bilgileriyle Ödeme
-            </div>
-            <div class="form-area">
-                <label>Kart Sahibi Adı Soyadı:</label>
-                <input name="cardOwnerName" type="text" class="form-control" value="Fatih Coşkun">
-                <label>Kart Numarası:</label>
-                <input name="cardNumber" type="text" class="form-control" value="4282209027132016">
-                <label>Son Kullanma Tarihi Ay/Yıl:</label>
-                <div class="horizonal-form">
-                    <input name="cardExpireMonth" type="text" class="form-control" value="05">
-                    <p> / </p>
-                    <input name="cardExpireYear" type="text" class="form-control" value="18">
+    <body>
+        <div class="wrapper">
+            {{> navbar}}
+            <div class="content">
+                <br />
+                <div class="content-header">
+                    Sepet Bilgileri
                 </div>
-                <label>CVC</label>
-                <input name="cardCvc" type="text" class="form-control" value="000">
-                <select name="installment" class="form-control">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-                <button class="btn success" type="submit" id="pay">API Payment ile Ödeme</button>
-            </div>
-            <pre id="result">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ürün</th>
+                            <th>Kod</th>
+                            <th>Adet</th>
+                            <th>Birim Fiyatı</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Telefon</td>
+                            <td>TLF0001</td>
+                            <td>1</td>
+                            <td>50 TL</td>
+                        </tr>
+                        <tr>
+                            <td>Bilgisayar</td>
+                            <td>TLF0001</td>
+                            <td>1</td>
+                            <td>50 TL</td>
+                        </tr>
+                        <tr class="total">
+                            <td>Toplam</td>
+                            <td></td>
+                            <td></td>
+                            <td>100 TL</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <br />
+                <div class="content-header">
+                    Kargo Adresi Bilgileri
+                </div>
+                <div class="fielset">
+                    <label style="font-weight:bold;">Ad :</label>
+                    Murat<br />
+                    <label style="font-weight:bold;">Soyad :</label>
+                    Kaya
+                    <br />
+                    <label style="font-weight:bold;">Adres :</label>
+                    Mevlüt Pehlivan Mah. Multinet Plaza Şişli
+                    <br />
+                    <label style="font-weight:bold;">Posta Kodu :</label>
+                    34782
+                    <br />
+                    <label style="font-weight:bold;">Şehir :</label>
+                    İstanbul
+                    <br />
+                    <label style="font-weight:bold;">Ülke :</label>
+                    Türkiye
+                    <br />
+                    <label style="font-weight:bold;">Telefon Numarası:</label>
+                    2123886600
+                    <br />
+                </div>
+                <br />
+                <br />
+                <div class="content-header">
+                    Fatura Adresi Bilgileri
+                </div>
+                <div class="fielset">
+                    <label style="font-weight:bold;">Ad :</label>
+                    Murat<br />
+                    <label style="font-weight:bold;">Soyad :</label>
+                    Kaya<br />
+                    <label style="font-weight:bold;">Adres :</label>
+                    Mevlüt Pehlivan Mah. Multinet Plaza Şişli<br />
+                    <label style="font-weight:bold;">Posta Kodu :</label>
+                    34782<br />
+                    <label style="font-weight:bold;">Şehir :</label>
+                    İstanbul<br />
+                    <label style="font-weight:bold;">Ülke :</label>
+                    Türkiye<br />
+                    <label style="font-weight:bold;">TC Kimlik Numarası :</label>
+                    12345678901<br />
+                    <label style="font-weight:bold;">Telefon Numarası:</label>
+                    2123886600<br />
+                    <label style="font-weight:bold;">Vergi Numarası :</label>
+                    123456<br />
+                    <label style="font-weight:bold;">Vergi Dairesi Adı :</label>
+                    Kozyatağı<br />
+                    <label style="font-weight:bold;">Firma Adı:</label>
+                    iPara
+                </div>
+                <br />
+                <br />
+                <div class="content-header">
+                    Kart Bilgileriyle Ödeme
+                </div>
+                <div class="form-area">
+                    <label>Kart Sahibi Adı Soyadı (*):</label>
+                    <input
+                        name="cardOwnerName"
+                        type="text"
+                        class="form-control"
+                        value="Fatih Coşkun"
+                    />
+                    <label>Kart Numarası (*):</label>
+                    <input
+                        name="cardNumber"
+                        type="text"
+                        class="form-control"
+                        value="4508034508034509"
+                    />
+                    <label>Son Kullanma Tarihi Ay/Yıl (*):</label>
+                    <div class="horizonal-form">
+                        <input
+                            name="cardExpireMonth"
+                            type="text"
+                            class="form-control"
+                            value="12"
+                        />
+                        <p> / </p>
+                        <input
+                            name="cardExpireYear"
+                            type="text"
+                            class="form-control"
+                            value="24"
+                        />
+                    </div>
+                    <label>CVC (*):</label>
+                    <input
+                        name="cardCvc"
+                        type="text"
+                        class="form-control"
+                        value="000"
+                    />
+                    <label>Tutar (**):</label>
+                    <input
+                        name="amount"
+                        type="text"
+                        class="form-control"
+                        value="10000"
+                    />
+                    <label>Taksit (*):</label>
+                    <select name="installment" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <button class="btn success" type="submit" id="pay">Non-3D Ödeme</button>
+                    <p>** Sipariş tutarı kuruş ayracı olmadan gönderilmelidir. Örneğin; 1 TL 100, 12 1200, 130 13000, 1.05 105, 1.2 120 olarak gönderilmelidir.</p>
+                </div>
+                <pre id="result">
 
-            </pre>
+                </pre>
+            </div>
         </div>
-    </div>
-    <script src="/js/non-3d-payment.js"></script>
-    <script src="/js/template.js"></script>
-</body>
+        <script src="/js/non-3d-payment.js"></script>
+        <script src="/js/template.js"></script>
+    </body>
 
 </html>

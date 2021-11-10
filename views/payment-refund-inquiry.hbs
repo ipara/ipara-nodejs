@@ -1,7 +1,7 @@
 <html lang="en">
 
     <head>
-        {{> head}}  
+        {{> head}}           
     </head>
 
     <body>
@@ -9,35 +9,26 @@
             {{> navbar}}
             <div class="content">
                 <div class="content-header">
-                    Bin Sorgulama
+                    İade Sorgula
                 </div>
                 <div class="form-area">
-                    <label>Bin Numarası (*):</label>
+                    <label>Sipariş Numarası (*):</label>
                     <input
-                        name="binNumber"
+                        name="orderId"
                         type="text"
                         class="form-control"
-                        value="466280"
-                        required
+                        value="afe88111-e833-b982-922f-0b7cf6a6b4c1"
                     />
                     <label>Tutar (**):</label>
                     <input
                         name="amount"
                         type="text"
                         class="form-control"
-                        value="1000"
-                        required
+                        value="100"
                     />
-                    <label>3D / Non-Secure (*):</label>
-                    <select name="threeD" class="form-control">
-                        <option value="true">3D</option>
-                        <option value="false">Non-Secure</option>
-                    </select>
-                    <button
-                        class="btn success"
-                        type="submit"
-                        id="pay"
-                    >Sorgula</button>
+
+                    <button class="btn success" type="submit" id="pay">Iade
+                        Sorgula</button>
                     <p>** Sipariş tutarı kuruş ayracı olmadan gönderilmelidir. Örneğin; 1 TL 100, 12 1200, 130 13000, 1.05 105, 1.2 120 olarak gönderilmelidir.</p>
                 </div>
                 <pre id="result">
@@ -45,8 +36,8 @@
                 </pre>
             </div>
         </div>
-        <script src="/js/bin-inquiry.js"></script>
         <script src="/js/template.js"></script>
+        <script src="/js/payment-refund-inquiry.js"></script>
     </body>
 
 </html>

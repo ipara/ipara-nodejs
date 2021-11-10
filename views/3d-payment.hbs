@@ -1,13 +1,14 @@
 <html lang="en">
 
     <head>
-        {{> head}} 
+        {{> head}}    
     </head>
 
     <body>
         <div class="wrapper">
             {{> navbar}}
             <div class="content">
+                <br/>
                 <div class="content-header">
                     Sepet Bilgileri
                 </div>
@@ -41,6 +42,8 @@
                         </tr>
                     </tbody>
                 </table>
+                <br/>
+                <br/>
                 <div class="content-header">
                     Kargo Adresi Bilgileri
                 </div>
@@ -66,6 +69,8 @@
                     2123886600
                     <br />
                 </div>
+                <br/>
+                <br/>
                 <div class="content-header">
                     Fatura Adresi Bilgileri
                 </div>
@@ -93,48 +98,86 @@
                     <label style="font-weight:bold;">Firma Adı:</label>
                     iPara
                 </div>
+                <br/>
+                <br/>
                 <div class="content-header">
-                    Tek Tıkla Ödeme
+                    Kart Bilgileriyle Ödeme
                 </div>
-                <div class="form-area">
-                    <label>Kullanıcı Id (*):</label>
-                    <input
-                        name="userId"
-                        type="text"
-                        class="form-control"
-                        value="123456"
-                    />
-                    <label>Kart Id (*):</label>
-                    <input
-                        name="cardId"
-                        type="text"
-                        class="form-control"
-                        value=""
-                    />
-                    <label>Taksit (*):</label>
-                    <select name="installment" class="form-control">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
-                    <button class="btn success" id="pay">Non-3D Ödeme</button>
-                </div>
-                <pre id="result">
-
-                </pre>
+                <form action="/api/3d-payment" method="post">
+                    <div class="form-area">
+                        <label>Kart Sahibi Adı Soyadı (*):</label>
+                        <input
+                            name="cardOwnerName"
+                            type="text"
+                            class="form-control"
+                            value="Fatih Coşkun"
+                            required
+                        />
+                        <label>Kart Numarası (*):</label>
+                        <input
+                            name="cardNumber"
+                            type="text"
+                            class="form-control"
+                            value="4508034508034509"
+                            required
+                        />
+                        <label>Son Kullanma Tarihi Ay/Yıl (*):</label>
+                        <div class="horizonal-form">
+                            <input
+                                name="cardExpireMonth"
+                                type="text"
+                                class="form-control"
+                                value="12"
+                                required
+                            />
+                            <p> / </p>
+                            <input
+                                name="cardExpireYear"
+                                type="text"
+                                class="form-control"
+                                value="24"
+                                required
+                            />
+                        </div>
+                        <label>CVC (*):</label>
+                        <input
+                            name="cardCvc"
+                            type="text"
+                            class="form-control"
+                            value="000"
+                            required
+                        />
+                        <label>Tutar (**):</label>
+                        <input
+                            name="amount"
+                            type="text"
+                            class="form-control"
+                            value="10000"
+                            required
+                        />
+                        <label>Taksit (Opsiyonel):</label>
+                        <select name="installment" class="form-control">
+                            <option value="">Seçiniz</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <button class="btn success" type="submit">3D ile Ödeme</button>
+                        <p>** Sipariş tutarı kuruş ayracı olmadan gönderilmelidir. Örneğin; 1 TL 100, 12 1200, 130 13000, 1.05 105, 1.2 120 olarak gönderilmelidir.</p>
+                    </div>
+                </form>
             </div>
         </div>
         <script src="/js/template.js"></script>
-        <script src="/js/payment-with-wallet.js"></script>
     </body>
 
 </html>

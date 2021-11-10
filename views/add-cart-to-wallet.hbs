@@ -1,42 +1,72 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    {{> head}}
-</head>
+    <head>
+        {{> head}}    
+    </head>
 
-<body>
-    <div class="wrapper">
-        {{> navbar}}
-        <div class="content">
-            <div class="content-header">
-                Cüzdana Kart Ekleme
-            </div>
-            <div class="form-area">
-                <label>Kullanıcı Id:</label>
-                <input name="userId" type="text" class="form-control" value="123456">
-                <label>Kart Sahibi Adı Soyadı:</label>
-                <input name="cardOwnerName" type="text" class="form-control" value="Fatih Coşkun">
-                <label>Kart Numarası:</label>
-                <input name="cardNumber" type="text" class="form-control" value="4282209027132016">
-                <label>Son Kullanma Tarihi Ay/Yıl:</label>
-                <div class="horizonal-form">
-                    <input name="cardExpireMonth" type="text" class="form-control" value="05">
-                    <p> / </p>
-                    <input name="cardExpireYear" type="text" class="form-control" value="18">
+    <body>
+        <div class="wrapper">
+            {{> navbar}}
+            <div class="content">
+                <div class="content-header">
+                    Cüzdana Kart Ekleme
                 </div>
-                <label>Kart Kısa Adı:</label>
-                <input name="cardAlias" type="text" class="form-control" value="Maaş Kartı">
+                <div class="form-area">
+                    <label>Kullanıcı Id (*):</label>
+                    <input
+                        name="userId"
+                        type="text"
+                        class="form-control"
+                        value="123456"
+                    />
+                    <label>Kart Sahibi Adı Soyadı (*):</label>
+                    <input
+                        name="cardOwnerName"
+                        type="text"
+                        class="form-control"
+                        value="Fatih Coşkun"
+                    />
+                    <label>Kart Numarası (*):</label>
+                    <input
+                        name="cardNumber"
+                        type="text"
+                        class="form-control"
+                        value="4531444531442283"
+                    />
+                    <label>Son Kullanma Tarihi Ay/Yıl (*):</label>
+                    <div class="horizonal-form">
+                        <input
+                            name="cardExpireMonth"
+                            type="text"
+                            class="form-control"
+                            value="12"
+                        />
+                        <p> / </p>
+                        <input
+                            name="cardExpireYear"
+                            type="text"
+                            class="form-control"
+                            value="24"
+                        />
+                    </div>
+                    <label>Kart Kısa Adı (*):</label>
+                    <input
+                        name="cardAlias"
+                        type="text"
+                        class="form-control"
+                        value="Maaş Kartı"
+                    />
 
-                <button class="btn success" type="submit" id="pay">Kartı Ekle</button>
+                    <button class="btn success" type="submit" id="pay">Kartı
+                        Ekle</button>
+                </div>
+                <pre id="result">
+
+                </pre>
             </div>
-            <pre id="result">
-
-            </pre>
         </div>
-    </div>
-    <script src="/js/add-cart-to-wallet.js"></script>
-    <script src="/js/template.js"></script>
-</body>
+        <script src="/js/add-cart-to-wallet.js"></script>
+        <script src="/js/template.js"></script>
+    </body>
 
 </html>

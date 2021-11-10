@@ -1,0 +1,76 @@
+<html lang="en">
+
+    <head>
+        {{> head}}            
+    </head>
+
+    <body>
+        <div class="wrapper">
+            {{> navbar}}
+            <div class="content">
+                <div class="content-header">
+                    Ödeme Listele
+                </div>
+                <div class="form-area">
+                    <label>Başlangıç Tarihi (Gün/Ay/Yıl) (*):</label>
+                    <div class="horizonal-form">
+                        <input
+                            name="startDateDay"
+                            type="text"
+                            class="form-control"
+                            value="25"
+                        />
+                        /
+                        <input
+                            name="startDateMonth"
+                            type="text"
+                            class="form-control"
+                            value="10"
+                        />
+                        /
+                        <input
+                            name="startDateYear"
+                            type="text"
+                            class="form-control"
+                            value="2021"
+                        />
+                    </div>
+                    <label>Bitiş Tarihi (Gün/Ay/Yıl) (*):</label>
+                    <div class="horizonal-form">
+                        <input
+                            name="expireDateDay"
+                            type="text"
+                            class="form-control"
+                            value="1"
+                        />
+                        /
+                        <input
+                            name="expireDateMonth"
+                            type="text"
+                            class="form-control"
+                            value="11"
+                        />
+                        /
+                        <input
+                            name="expireDateYear"
+                            type="text"
+                            class="form-control"
+                            value="2021"
+                        />
+                    </div>
+                    <button
+                        class="btn success"
+                        type="submit"
+                        id="pay"
+                    >Ödemeleri Listele</button>
+                </div>
+                <pre id="result">
+
+                </pre>
+            </div>
+        </div>
+        <script src="/js/payment-inquiry-with-time.js"></script>
+        <script src="/js/template.js"></script>
+    </body>
+
+</html>

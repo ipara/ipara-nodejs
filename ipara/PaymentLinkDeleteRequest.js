@@ -2,30 +2,20 @@ const axios = require("axios");
 const settings = require("../settings").settings;
 const helpers = require("../helpers/index");
 
-function BankCardInquiryRequest(obj) {
+function PaymentLinkDeleteRequest(obj) {
     return new Promise((resolve, reject) => {
-        if (!obj.userId)
-            return reject({
-                error: "userId bulunamadı !",
-            });
-
         const data = JSON.stringify({
-            userId: obj.userId,
-            cardId: obj.cardId || "",
+            linkId: obj.linkId,
             clientIp: obj.clientIp,
         });
 
         const transactionDate = helpers.GetTransactionDateString();
         const token = helpers.CreateToken(
             settings.publicKey,
-            settings.privateKey +
-                obj.userId +
-                obj.cardId +
-                obj.clientIp +
-                transactionDate
+            settings.privateKey + obj.clientIp + transactionDate
         );
         axios({
-            url: settings.baseURL + "/bankcard/inquiry",
+            url: settings.baseURL + "corporate/merchant/linkpayment/delete",
             method: "POST",
             headers: {
                 transactionDate,
@@ -45,4 +35,4 @@ function BankCardInquiryRequest(obj) {
     });
 }
 
-module.exports = BankCardInquiryRequest;
+module.exports = PaymentLinkDeleteRequest;
