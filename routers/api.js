@@ -559,6 +559,7 @@ exports.api.post("/payment-link-inquiry", (req, res) => {
     const obj = {
         email: req.body.email,
         gsm: req.body.gsm,
+        linkId: req.body.linkId,
         linkState: req.body.linkState,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
