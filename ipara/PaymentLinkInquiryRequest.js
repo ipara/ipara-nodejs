@@ -15,6 +15,9 @@ function PaymentLinkInquiryRequest(obj) {
             clientIp: obj.clientIp,
         });
 
+        if (obj.linkId) {
+            data.linkId = obj.linkId;
+        }
         const transactionDate = helpers.GetTransactionDateString();
         const token = helpers.CreateToken(
             settings.publicKey,

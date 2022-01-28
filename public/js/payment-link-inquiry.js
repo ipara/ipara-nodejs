@@ -1,6 +1,7 @@
 document.getElementById("pay").addEventListener("click", function (e) {
     var email = document.getElementsByName("email")[0].value;
     var gsm = document.getElementsByName("gsm")[0].value;
+    var linkId = document.getElementsByName("linkId")[0].value;
     var linkState = document.getElementsByName("linkState")[0].value;
 
     var startDate = "";
@@ -60,6 +61,7 @@ document.getElementById("pay").addEventListener("click", function (e) {
         JSON.stringify({
             email,
             gsm,
+            linkId,
             linkState,
             startDate,
             endDate,
