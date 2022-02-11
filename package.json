@@ -38,7 +38,7 @@
         "axios": "^0.18.1",
         "cookie-parser": "^1.4.3",
         "express": "^4.17.1",
-        "express-handlebars": "^3.0.0",
+        "express-handlebars": "^5.3.1",
         "guid": "^0.0.12",
         "pretty-data": "^0.40.0",
         "sha1": "^1.1.1",
