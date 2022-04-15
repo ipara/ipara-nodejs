@@ -35,7 +35,7 @@
         "start": "node server.js"
     },
     "dependencies": {
-        "axios": "^0.18.1",
+        "axios": "^0.21.2",
         "cookie-parser": "^1.4.3",
         "express": "^4.17.1",
         "express-handlebars": "^3.0.0",
